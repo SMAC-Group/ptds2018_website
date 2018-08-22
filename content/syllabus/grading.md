@@ -35,7 +35,7 @@ No final examination for this class. The learning outcomes is continuously asses
 {{% /notice %}}
 
 ### Semester project
-The final project provides an opportunity to combine content learned throughout the course for use in some realistic application. All projects are conducted in groups. The details of the semester project are discussed in class and students will have the opportunity to choose between several project formats (see also the project page for more details). The 30 points of the grade are allocated to the following criteria:
+The final project provides an opportunity to combine content learned throughout the course for use in some realistic application. All projects are conducted in groups. The details of the semester project are discussed in class and students will have the opportunity to choose between several project formats (see also the [project page](https://ptds2018.netlify.com/project/) for more details). The 30 points of the grade are allocated to the following criteria:
 
 - Overall quality (3 points)
 - Interest and complexity of the subject (3 points)
@@ -54,14 +54,14 @@ Do not underestimate the workload that the project represents. This class requir
 {{% /notice %}}
 
 ### Homeworks
-There are four homework assignments during the semester which are realized in groups. Each of these homeworks combines some of the content learned throughout the course. There are five points per homework. Homeworks and their specific requirements are detailed at the homeworks page.
+There are four homework assignments during the semester which are realized in groups. Each of these homeworks combines some of the content learned throughout the course. There are five points per homework. Homeworks and their specific requirements are detailed at the [homeworks page](https://ptds2018.netlify.com/homeworks/).
 
 {{% notice warning %}}
 Late submission is penalized by 1 point every 24 hours after the deadline.
 {{% /notice %}}
 
 ### Participation
-Participation is graded based on both Piazza (see the communication page here) and in-class activities. There are five points for each. 
+Participation is graded based on both [Piazza](https://piazza.com/unil.ch/fall2018/ptds2018/home) (see the [communication page](https://ptds2018.netlify.com/syllabus/communication/) here) and in-class activities. There are five points for each. 
 
 In order to earn full credit for the Piazza portion, each student should make 1 or more substantive posts per week (except during the first week) related to the content of the course. A post can be a reply to another student's question. Grading is based on Piazza meta-data that can only be accessed by an instructor.
 

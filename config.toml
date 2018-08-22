@@ -1,5 +1,5 @@
 theme = "hugo-theme-learn"
-baseURL = "http://example.org/"
+baseURL = "https://ptds2018.netlify.com/"
 languageCode = "en-us"
 title = "Programming tools for data science 2018"
 
@@ -14,7 +14,7 @@ home = ["HTML", "RSS", "JSON"]
   # Prefix URL to edit current page. Will display an "Edit this page" button on top right hand corner of every page. 
   # Useful to give opportunity to people to create merge request for your doc.
   # See the config.toml file from this documentation site to have an example.
-  editURL = ""
+  editURL = "https://ptds2018.netlify.com/"
   # Author of the site, will be used in meta information
   author = "Samuel Orso"
   # Description of the site, will be used in meta information
@@ -36,4 +36,22 @@ home = ["HTML", "RSS", "JSON"]
   ordersectionsby = "weight"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "green"
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://github.com/SMAC-Group/ptds2018_website/"
+weight = 5
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-users'></i> Discussion forum"
+identifier = "fm"
+url = "https://piazza.com/class/jkmo9ble14l7mf?cid=3#"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-book-open'></i> Lectures"
+identifie = "book"
+url = "https://smac-group.github.io/ds/"
+weight = 15
 

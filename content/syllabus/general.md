@@ -11,9 +11,9 @@ weight = 5
 
 ### Course Websites
 
-* **Course website:**  TBD
-* **Online textbook:**  <http://r.smac-group.com>
-* **Discussion Forum:** (https://piazza.com/unil.ch/fall2018/ptds2018/home)[https://piazza.com/class/jkmo9ble14l7mf?cid=3#]
+* **Course website:**  <https://ptds2018.netlify.com/>
+* **Online textbook:**  <http://r.smac-group.com/>
+* **Discussion Forum:** <https://piazza.com/unil.ch/fall2018/ptds2018/home>
 
 ### Course Staff
 
@@ -28,5 +28,5 @@ may be made upon request (first, check the communication chanel described here).
 
 - **Name:** [Iegor Rudnytskyi](http://hec.unil.ch/hec/recherche/fiche?pnom=irudnytskyi&dyn_lang=en)
 - **Email:** [Iegor.Rudnytskyi@unil.ch](mailto:Iegor.Rudnytskyi@unil.ch)
-- **Office:** to be filled
-- **Office Hours:** to be determined
+- **Office:** TBD
+- **Office Hours:** TBD
