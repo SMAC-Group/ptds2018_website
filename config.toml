@@ -2,6 +2,7 @@ theme = "hugo-theme-learn"
 baseURL = "https://ptds2018.netlify.com/"
 languageCode = "en-us"
 title = "Programming tools for data science 2018"
+googleAnalytics = "UA-124418992-1" # add Google Analytics
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
@@ -55,5 +56,4 @@ identifie = "book"
 url = "https://smac-group.github.io/ds/"
 weight = 15
 
-# Add Google Analytics
-googleAnalytics = "UA-124418992-1"
+
