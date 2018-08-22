@@ -3,6 +3,8 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Programming tools for data science 2018"
 
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
 # For search functionnality
 [outputs]
 home = ["HTML", "RSS", "JSON"]
