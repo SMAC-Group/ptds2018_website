@@ -23,10 +23,12 @@ weight = 5
 - **Email:** [Samuel.Orso@unil.ch](mailto:Samuel.Orso@unil.ch)
 - **Office Hours:** I do not have an office at the University of Lausanne. Appointment
 may be made upon request (first, check the communication chanel described [here]({{< ref "communication.md" >}})).
+- <i class='fa fa-fw fa-github'></i> [find me on GitHub](https://github.com/samorso)
 
 #### Teaching Assistant 
 
 - **Name:** [Iegor Rudnytskyi](http://hec.unil.ch/hec/recherche/fiche?pnom=irudnytskyi&dyn_lang=en)
 - **Email:** [Iegor.Rudnytskyi@unil.ch](mailto:Iegor.Rudnytskyi@unil.ch)
-- **Office:** TBD
-- **Office Hours:** TBD
+- **Office:** EXT-105
+- **Office Hours:** Tuesdays 10:15AM - 12AM  
+- <i class='fa fa-fw fa-github'></i> [find me on GitHub](https://github.com/irudnyts)

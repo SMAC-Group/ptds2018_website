@@ -6,7 +6,7 @@ weight = 20
 
 {{% notice warning %}}
 **Deadline: 2018-11-05 at 4pm**  
-To submit your work, add `samorso` and `TBD` as collaborators to your private GitHub repo.  
+To submit your work, add `samorso` and `irudnyts` as collaborators to your private GitHub repo.  
 We will grade only the latest files prior to the deadline. Any ulterior modifications are pointless. 
 {{% /notice %}}
 
@@ -17,7 +17,7 @@ The objectives of this homework assignment are the followings:
 - Constructing a portfolio;  
 - Become familiar with GitHub and using it as a collaborative tool.
 
-To begin with, create a (preferably private) GitHub repository for your group, and name it `ptds2018hw2`. Once again, make sure to add `samorso` and `TBD` as collaborators. This project **must** be done using GitHub and respect the following requirements:
+To begin with, create a (preferably private) GitHub repository for your group, and name it `ptds2018hw2`. Once again, make sure to add `samorso` and `irudnyts` as collaborators. This project **must** be done using GitHub and respect the following requirements:
 
 - All members of the group must commit at least once.  
 - All commit messages must be reasonably clear and meaningful.  
