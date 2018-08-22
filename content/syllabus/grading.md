@@ -61,7 +61,7 @@ Late submission is penalized by 1 point every 24 hours after the deadline.
 {{% /notice %}}
 
 ### Participation
-Participation is graded based on both [Piazza](https://piazza.com/unil.ch/fall2018/ptds2018/home) (see the [communication page](https://ptds2018.netlify.com/syllabus/communication/) here) and in-class activities. There are five points for each. 
+Participation is graded based on both [Piazza](https://piazza.com/unil.ch/fall2018/ptds2018/home) (see the [communication page](https://ptds2018.netlify.com/syllabus/communication/)) and in-class activities. There are five points for each. 
 
 In order to earn full credit for the Piazza portion, each student should make 1 or more substantive posts per week (except during the first week) related to the content of the course. A post can be a reply to another student's question. Grading is based on Piazza meta-data that can only be accessed by an instructor.
 

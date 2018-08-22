@@ -22,7 +22,7 @@ weight = 5
 - **Name:** Samuel Orso
 - **Email:** [Samuel.Orso@unil.ch](mailto:Samuel.Orso@unil.ch)
 - **Office Hours:** I do not have an office at the University of Lausanne. Appointment
-may be made upon request (first, check the communication chanel described here).
+may be made upon request (first, check the communication chanel described [here]({{< ref "communication.md" >}})).
 
 #### Teaching Assistant 
 

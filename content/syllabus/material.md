@@ -34,7 +34,7 @@ The following textbooks are helpful, but not necessary to succeed in the course:
 - **Supplemental**: [R Programming for Data Science](https://bookdown.org/rdpeng/rprogdatascience/) by Roger D. Peng
 - **Supplemental**: [Seamless R and C++ integration with Rcpp](http://www.rcpp.org/book/) by Dirk Eddelbuettel
 
-We regrouped more references by category in the Resources.
+We regrouped more references by category in the [resources page](https://ptds2018.netlify.com/resources/).
 
 ### Software
 All the software we will be using are free for acamedic activities. The course will use and present the [R statistical computing language](https://www.r-project.org/) as well as different parts of C++ through [Rcpp](http://www.rcpp.org/). The integrated developer environment that we will use to explore R is [RStudio IDE](https://www.rstudio.com/products/rstudio/) made by [RStudio Inc](https://www.rstudio.com/).

@@ -35,6 +35,9 @@
     </style>
     {{ partial "custom-header.html" . }}
     {{ partial "mathjax_support.html" . }}
+    {{ if not (in (.Site.BaseURL | string) "localhost") }}
+    	{{ partial "google_analytics.html" . }}
+    {{ end }}
   </head>
   <body class="" data-url="{{ .RelPermalink }}">
     {{ partial "menu.html" . }}
