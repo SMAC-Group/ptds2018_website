@@ -30,5 +30,5 @@ may be made upon request (first, check the communication chanel described [here]
 - **Name:** [Iegor Rudnytskyi](http://hec.unil.ch/hec/recherche/fiche?pnom=irudnytskyi&dyn_lang=en)
 - **Email:** [Iegor.Rudnytskyi@unil.ch](mailto:Iegor.Rudnytskyi@unil.ch)
 - **Office:** EXT-105
-- **Office Hours:** Tuesdays 10:15AM - 12AM  
+- **Office Hours:** Wednesdays 8:30AM - 10AM  
 - <i class='fa fa-fw fa-github'></i> [find me on GitHub](https://github.com/irudnyts)

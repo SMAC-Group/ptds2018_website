@@ -13,7 +13,7 @@ This class is intended to introduce to the students a wide range of programming 
 - **R packages:** Construction of R-packages using [devtools](https://cran.r-project.org/web/packages/devtools/vignettes/dependencies.html), [roxygen2](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) and
   [pkgdown](https://pkgdown.r-lib.org/articles/pkgdown.html)
 - **Communication:** webiste creation via [blogdown](https://bookdown.org/yihui/blogdown/), Web application via [shiny](https://shiny.rstudio.com/)
-- **Webscrapping:** Automatic extraction of data from websites using [SelectorGadget](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html), [rvest](https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/) and [quantmod](https://www.quantmod.com/)
+- **Web scraping:** Automatic extraction of data from websites using [SelectorGadget](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html), [rvest](https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/) and [quantmod](https://www.quantmod.com/)
 - **High performance computing:** R and C++ integration via [Rcpp](http://www.rcpp.org/), parallel computing.
 
 No IT background is assumed from the students but a strong will to learn useful and practical programming skills.
