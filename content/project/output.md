@@ -5,7 +5,7 @@ weight = 20
 +++
 
 {{% notice warning %}}
-Presentations of the projects is are held the **2018-12-18**.
+Presentations of the projects are held the **2018-12-18**.
 {{% /notice %}}
 
 The output of your project must be:

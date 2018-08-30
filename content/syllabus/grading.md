@@ -35,7 +35,7 @@ No final examination for this class. The learning outcomes are continuously asse
 {{% /notice %}}
 
 ### Semester project
-The final project provides an opportunity to combine content learned throughout the course for use in some realistic application. All projects are conducted in groups. The details of the semester project are discussed in class and students will have the opportunity to choose between several project formats (see also the [project page](https://ptds2018.netlify.com/project/) for more details). The 30 points of the grade are allocated to the following criteria:
+The final project provides an opportunity to combine content learned throughout the course for use in some realistic application. All projects are conducted in groups. The details of the semester project are discussed in class and students will have the opportunity to choose between several project formats (see also the [project page](https://ptds2018.netlify.com/project/) for more details). The 30 points of the grade are allocated according to the following criteria:
 
 - Overall quality (3 points)
 - Interest and complexity of the subject (3 points)
