@@ -8,6 +8,6 @@ pre = "<b>2. </b>"
 
 # Tutorials
 
-This section contains the tutorials on various topics, namely, syntax, best practice, conventions, and typical workflows, etc.
+This section contains the tutorials on various topics, namely, coding style guide, basics of syntax, best practice, conventions, typical workflows, etc.
 
 ![team-work](https://media.giphy.com/media/l3q2Wl7Wpz09Z5hfi/giphy.gif)
