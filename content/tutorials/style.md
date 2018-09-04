@@ -160,16 +160,24 @@ Many points of naming variables are similar for naming functions:
     
 * Add the underscore (`_`) prefix to a standard evaluation (SE) equiualent of a fucntion (`summrize` vs `sumarize_` ).
 
-#### Naming classes
+#### Naming S4 classes
 
 Class names should be nouns in CamelCase with initial capital case letter.
 
 
-### Syntax 
+### Syntax
 
 #### Line length 
 
 The maximum length of lines is limited to 80 characters (thanks to IBM Punch Card).
+
+It is possible to display the margin in RStudio Source editor:
+
+* Go to Tools -> Global Options... -> Code -> Display
+* Click on "Show margin"
+* Set "Margin column" to 80
+
+<img src="/tutorials/length.png" alt="map" width="400px"/> 
 
 #### Spacing
 
@@ -178,11 +186,11 @@ The maximum length of lines is limited to 80 characters (thanks to IBM Punch Car
     ```{toml}
     # Good 
     x == y
-    a <- a + 1
+    a <- a ^ 2 + 1
     
     # Bad
     x==y
-    a<-a+1
+    a<-a^2+1
     ```
     
 * Put spaces around "=" in function calls (except for Bioconductor).
@@ -195,7 +203,7 @@ The maximum length of lines is limited to 80 characters (thanks to IBM Punch Car
     mean(x=c(1, NA, 2), na.rm=TRUE)
     ```
 
-* DO NOT place space for subsetting (`$` and `@`), namespace manipulation (`::` and `:::`), and for sequence generation (`:`).
+* Do NOT place space for subsetting (`$` and `@`), namespace manipulation (`::` and `:::`), and for sequence generation (`:`).
 
     ```{toml}
     # Good 
@@ -225,14 +233,246 @@ The maximum length of lines is limited to 80 characters (thanks to IBM Punch Car
     
 * Use a space before left parentheses, except in a function call.
 
-
-#### 
-
-
-
+    ```{toml}
+    # Good 
+    for (element in element_list)
+    if (grade == 5.5)
+    sum(1:10)
     
+    # Bad
+    for(element in element_list)
+    if(grade == 5.5)
+    sum (1:10)
+    ```
+    
+* No spacing around code in paranthesis or square brackets.
+
+    ```{toml}
+    # Good 
+    if (debug) message("debug mode")
+    species["tiger", ]
+    
+    # Bad
+    if ( debug ) message("debug mode")
+    species[ "tiger" ,]
+    ```
+    
+#### Curly braces 
+
+* An opening curly brace should NEVER go on its own line and should always be followed by a new line.
+
+    ```{toml}
+    # Good 
+    if (is_used) {
+        # do something
+    }
+    
+    if (is_used) {
+        # do something
+    } else {
+        # do something else
+    }
+    
+    # Bad
+    if (is_used)
+    {
+        # do something
+    }
+    
+    if (is_used) { # do something }
+    else { # do something else }
+    
+    ```
+
+* A closing curly brace should always go on its own line, unless it’s followed by else.
+
+    ```{toml}
+    # Good 
+    if (is_used) {
+        # do something
+    } else {
+        # do something else
+    }
+    
+    # Bad
+    if (is_used) {
+        # do something
+    }
+    else {
+    # do something else 
+    }
+    
+    ```
+* Always indent the code inside curly braces (see next section).
+
+    ```{toml}
+    # Good 
+    if (is_used) {
+        # do something
+        # and then something else
+    }
+    
+    # Bad
+    if (is_used) {
+    # do something
+    # and then something else
+    }
+    ```
+
+* Curly braces and new lines can avoided, if a statement after `if` is very short.
+
+    ```{toml}
+    # Good 
+    if (is_used) return(rval)
+    ```
+
+#### Indentation
+
+ALWAYS indent your code!
+
+* No tabs or mixes of tabs and spaces.
+
+* There are two common number of spaces for indentation: two (Hadley and others) and four (Bioconductor). My own rule of thumb: I use four spaces indentation for data analyses scripts, and two spaces while developing packages.
+
+* Choose the number of spaces of indentation up-front and stick to it. Never mix different number of spaces in one project.
+
+* To set the number of spcaces of the project, go to Tools -> Global options... -> Code -> Editing. Check the following boxes: "Insert spcaces for tab" (with "Tab width" equal to choosen number), "Auto-indent code after paste", and "Vertially align arguments in auto-indent".
+
+<img src="/tutorials/indent.png" alt="map" width="400px"/> 
+
+* Magic shortcut: `Command+I` (`Ctrl+I` for Windows/Linux) will indent a selected chunck of code. Together with `Command+A` (select all) it is a very powerful tool, which saves time.
+
+Try a little exercie: paste the following code in your RStudio sourse editor, select it, and hit `Command+I`:
+
+```{toml}
+for(i in 1:10) {
+if(i %% 2 == 0)
+print(paste(i, "is even"))
+}
+```
+
+#### New line
+
+* Very often a function definition does not fit into one line. In this case, excessive arguments should be moved to a new line, starting from the opening paranthesis. 
+
+    ```{toml}
+    long_function_name <- function(arg1, arg2, arg3, arg4, 
+                                   long_argument_name1 = TRUE)
+    ```
+    
+* If arguments expand more than into two lines, than each argument should be placed on a separate line.
+
+    ```{toml}
+    long_function_name <- function(long_argument_name1 = c("value1", "value2"),
+                                   long_argument_name2 = TRUE,
+                                   long_argument_name3 = NULL,
+                                   long_argument_name4 = FALSE)
+    ```
+
+* The same applies to a function call: excessive arguments should be indented where the closing paranthesis is located, if only two lines are sufficient.
+    
+    ```{toml}
+    plot(table(rpois(100, 5)), type = "h", col = "red", lwd = 10, 
+         main = "rpois(100, lambda = 5)")
+    ```
+    
+* Otherwise, each arguemnt can go into a separate line, starting from a new line after the openning paranthesis.
+
+    ```{toml}
+    list(
+        mean = mean(x),
+        sd = sd(x),
+        var = var(x),
+        min = min(x),
+        max = max(x),
+        median = median(x)
+    )
+    ```
+    
+* Each grammar statement of `dplyr` (after `%>%`) and `ggplot2` (after `+`) should start from a new line.
+
+    ```{toml}
+    mtcars %>%
+        filter(cyl == 4) %>% 
+        group_by(am) %>% 
+        summarize(avg_mpg = mean(mpg))
+        
+    ggplot(mtcars) + 
+        geom_point(aes(x = mpg, y = qsec, color = factor(am))) + 
+        geom_line(aes(x = mpg, y = qsec, color = factor(am)))
+    ```
+
+### Comments 
+
+* Comment your code. Always. Your collaborators and future-you will be very greatful. Comments starts by `#` followed by space and actuall comment. 
+
+    ```{toml}
+    # This is a comment. 
+    ```
+    
+* Comments should explain the why, not the what. Comments should not replicate the code by a plain languge, but rather explain the overall intention of the command.
+    
+    ```{toml}
+    # Good
+    # define iterator
+    i <- 1
+    
+    # Bad
+    # set i to 1
+    i <- 1
+    ```
+
+* Short comments can be placed after code preceded by one space, `#`, and then one space.
+
+    ```{toml}
+    plot(price, weight) # plot a scatter chart of price and weight
+    ```
+    
+* To comment/uncomment selected chunk, use `Command+Shift+C`.
+
+* Use `roxygen2` comments for a package development (i.e., `#'`) to comment functions.
+
+* It makes sense to split the source into logical chunks by `#` followed by `-` or `=`.
+
+    ```{toml}
+    # Read data
+    #---------------------------------------------------------------------------
+    
+    # Tidy data
+    #---------------------------------------------------------------------------
+    
+    ```
+
+
+### Other recommendations
+
+* Use `<-` for assignment, NOT `=`.
+
+* Use `library()` instead of `require()`, unless it is a concious choice. Package names should be strings (avoid NSE).
+    ```{toml}
+    # Good
+    library("dplyr")
+    
+    # Bad
+    require(dplyr)
+    ```
+    
+* In a function call, arguments can be specified by position, by compelte name, or by partial name. Never specify by partial name and never mix by position and by complete name.
+
+    ```{taml}
+    # Good 
+    mean(x, na.rm = TRUE)
+    rnorm(10, 0.2, 0.3)
+    
+    # Bad
+    mean(x, na = TRUE)
+    rnorm(mean = 0.2, 10, 0.3)
+    ```
+
+* While developing a package, specify arguments by name.
+
 * The required (with no default value) arguments should be first, followed by optional arguemnts.
-    
+
     ```{toml}
     # Good
     raise_to_power(x, power = 2.7)
@@ -255,14 +495,22 @@ The maximum length of lines is limited to 80 characters (thanks to IBM Punch Car
 
 * Good practice is to set default arguments inside the function using `NULL` idiom, and avoid dependence between arguments:
 
-```{toml}
-# Good
-standardize <- function(..., scale = NULL, center = NULL)
-```
+    ```{toml}
+    # Good
+    histogram <- function(x, bins = NULL) {
+        if (is.null(bins)) bins <- nclass.Sturges(x)
+        ...
+    }
+    
+    # Bad
+    histogram <- function(x, bins = nclass.Sturges(x)) {
+        ...
+    }
+    ```
 
-### Comments 
+* Always validate your arguments. 
 
-- Same as commit: not the what, but the why.
+* While developing a package, specify the namespace of each used function, except if it is from `base` package.
 
 ### References 
 
@@ -271,6 +519,3 @@ standardize <- function(..., scale = NULL, center = NULL)
 * [Bioconductor Coding Style](http://bioconductor.org/developers/how-to/coding-style/)
 * [Efficient R programming](https://csgillespie.github.io/efficientR/coding-style.html)
 * [Colin Gillespie’s R style guide](https://csgillespie.wordpress.com/2010/11/23/r-style-guide/)
-
-
-http://r-pkgs.had.co.nz/r.html
