@@ -10,4 +10,6 @@ weight = 5
 
 ### Introduction
 
-To be done...
+The size of the project increases exponentially. A project started as a harmless code snippet can easily pile up into a huge snowball of over hundred files with unstructured folder tree. 
+
+### Inizializing a new project

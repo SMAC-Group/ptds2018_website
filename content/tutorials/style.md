@@ -10,19 +10,19 @@ weight = 5
 
 ### Introduction
 
-A language is a tool that allows human beings to interact and communicate with each other. The clearer we express ourselves, the better an idea is transferred from our mind to the other. The same applies to programming languges: concise, clear and consistent codes are easier to read and/or edit. It is especially important, if you have collaborators, who depend on your code. However, even if you don't, keep in mind that at some point in time, you might come back to your code, for example, to fix an error. And if you did not follow consistently your coding style, reviewing your code can take much longer, than you expected. In this context, taking care of your audience means to make your code as readble as possible.
+A language is a tool that allows human beings to interact and communicate with each other. The clearer we express ourselves, the better an idea is transferred from our mind to the other. The same applies to programming languages: concise, clear and consistent codes are easier to read and/or edit. It is especially important, if you have collaborators, who depend on your code. However, even if you don't, keep in mind that at some point in time, you might come back to your code, for example, to fix an error. And if you did not follow consistently your coding style, reviewing your code can take much longer, than you expected. In this context, taking care of your audience means to make your code as readable as possible.
 
-There is no such thing as a "correct" coding style, as there is no such thing as the best color. At the end of the day, the coding style is a set of developers' preferences. If you are coding alone, sticking to your coding style and being consistent is more than enogh. The story is a bit different if you are working in a team: it is crucial to agree on a convention beforehand and make sure that everyone follows it. 
+There is no such thing as a "correct" coding style, as there is no such thing as the best color. At the end of the day, the coding style is a set of developers' preferences. If you are coding alone, sticking to your coding style and being consistent is more than enough. The story is a bit different if you are working in a team: it is crucial to agree on a convention beforehand and make sure that everyone follows it. 
 
-Even though there is no an official style guide, R is mature and steady enogh to have an "unofficial" convention. In this tutorial, you will learn these "unofficial" rules, their deviations, and most common styles.
+Even though there is no an official style guide, R is mature and steady enough to have an "unofficial" convention. In this tutorial, you will learn these "unofficial" rules, their deviations, and most common styles.
 
 ### Naming 
 
 #### Naming files 
 
-The convention actually depends on whether you develop a file for a pacakge, or as a part of data analysis process. There are, however, **common rules**:
+The convention actually depends on whether you develop a file for a package, or as a part of data analysis process. There are, however, **common rules**:
 
-* File names should use `.R` extenssion.
+* File names should use `.R` extension.
 
     ```{toml}
     # Good
@@ -55,7 +55,7 @@ The convention actually depends on whether you develop a file for a pacakge, or 
 
 If the file is **a part of the data analysis**, then it makes sense to follow the following recommendations:
 
-* File names should be lowercase. There is nothing bad in having capital case names, just bear in mind UNIX systems are case insenative, meaning that `test.R` and `Test.R` do not differ.
+* File names should be lowercase. There is nothing bad in having capital case names, just bear in mind UNIX systems are case insensitive, meaning that `test.R` and `Test.R` do not differ.
 
     ```{toml}
     # Good
@@ -158,7 +158,7 @@ Many points of naming variables are similar for naming functions:
     bw.test()
     ```
     
-* Add the underscore (`_`) prefix to a standard evaluation (SE) equiualent of a fucntion (`summrize` vs `sumarize_` ).
+* Add the underscore (`_`) prefix to a standard evaluation (SE) equivalent of a function (`summrize` vs `sumarize_` ).
 
 #### Naming S4 classes
 
@@ -245,7 +245,7 @@ It is possible to display the margin in RStudio Source editor:
     sum (1:10)
     ```
     
-* No spacing around code in paranthesis or square brackets.
+* No spacing around code in parenthesis or square brackets.
 
     ```{toml}
     # Good 
@@ -336,13 +336,13 @@ ALWAYS indent your code!
 
 * Choose the number of spaces of indentation up-front and stick to it. Never mix different number of spaces in one project.
 
-* To set the number of spcaces of the project, go to Tools -> Global options... -> Code -> Editing. Check the following boxes: "Insert spcaces for tab" (with "Tab width" equal to choosen number), "Auto-indent code after paste", and "Vertially align arguments in auto-indent".
+* To set the number of spaces of the project, go to Tools -> Global options... -> Code -> Editing. Check the following boxes: "Insert spaces for tab" (with "Tab width" equal to chosen number), "Auto-indent code after paste", and "Vertically align arguments in auto-indent".
 
 <img src="/tutorials/indent.png" alt="map" width="400px"/> 
 
-* Magic shortcut: `Command+I` (`Ctrl+I` for Windows/Linux) will indent a selected chunck of code. Together with `Command+A` (select all) it is a very powerful tool, which saves time.
+* Magic shortcut: `Command+I` (`Ctrl+I` for Windows/Linux) will indent a selected chunk of code. Together with `Command+A` (select all) it is a very powerful tool, which saves time.
 
-Try a little exercie: paste the following code in your RStudio sourse editor, select it, and hit `Command+I`:
+Try a little exercise: paste the following code in your RStudio source editor, select it, and hit `Command+I`:
 
 ```{toml}
 for(i in 1:10) {
@@ -353,7 +353,7 @@ print(paste(i, "is even"))
 
 #### New line
 
-* Very often a function definition does not fit into one line. In this case, excessive arguments should be moved to a new line, starting from the opening paranthesis. 
+* Very often a function definition does not fit into one line. In this case, excessive arguments should be moved to a new line, starting from the opening parenthesis. 
 
     ```{toml}
     long_function_name <- function(arg1, arg2, arg3, arg4, 
@@ -369,14 +369,14 @@ print(paste(i, "is even"))
                                    long_argument_name4 = FALSE)
     ```
 
-* The same applies to a function call: excessive arguments should be indented where the closing paranthesis is located, if only two lines are sufficient.
+* The same applies to a function call: excessive arguments should be indented where the closing parenthesis is located, if only two lines are sufficient.
     
     ```{toml}
     plot(table(rpois(100, 5)), type = "h", col = "red", lwd = 10, 
          main = "rpois(100, lambda = 5)")
     ```
     
-* Otherwise, each arguemnt can go into a separate line, starting from a new line after the openning paranthesis.
+* Otherwise, each argument can go into a separate line, starting from a new line after the opening parenthesis.
 
     ```{toml}
     list(
@@ -404,13 +404,13 @@ print(paste(i, "is even"))
 
 ### Comments 
 
-* Comment your code. Always. Your collaborators and future-you will be very greatful. Comments starts by `#` followed by space and actuall comment. 
+* Comment your code. Always. Your collaborators and future-you will be very grateful. Comments starts by `#` followed by space and actual comment. 
 
     ```{toml}
     # This is a comment. 
     ```
     
-* Comments should explain the why, not the what. Comments should not replicate the code by a plain languge, but rather explain the overall intention of the command.
+* Comments should explain the why, not the what. Comments should not replicate the code by a plain langue, but rather explain the overall intention of the command.
     
     ```{toml}
     # Good
@@ -448,7 +448,7 @@ print(paste(i, "is even"))
 
 * Use `<-` for assignment, NOT `=`.
 
-* Use `library()` instead of `require()`, unless it is a concious choice. Package names should be strings (avoid NSE).
+* Use `library()` instead of `require()`, unless it is a conscious choice. Package names should be strings (avoid NSE).
     ```{toml}
     # Good
     library("dplyr")
@@ -457,7 +457,7 @@ print(paste(i, "is even"))
     require(dplyr)
     ```
     
-* In a function call, arguments can be specified by position, by compelte name, or by partial name. Never specify by partial name and never mix by position and by complete name.
+* In a function call, arguments can be specified by position, by complete name, or by partial name. Never specify by partial name and never mix by position and by complete name.
 
     ```{taml}
     # Good 
@@ -471,7 +471,7 @@ print(paste(i, "is even"))
 
 * While developing a package, specify arguments by name.
 
-* The required (with no default value) arguments should be first, followed by optional arguemnts.
+* The required (with no default value) arguments should be first, followed by optional arguments.
 
     ```{toml}
     # Good
@@ -481,7 +481,7 @@ print(paste(i, "is even"))
     raise_to_power(power = 2.7, x)
     ```
 
-* The `...` argument shold either be in the beginning, or in the end.
+* The `...` argument should either be in the beginning, or in the end.
 
     ```{toml}
     # Good
