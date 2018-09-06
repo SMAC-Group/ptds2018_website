@@ -1,9 +1,9 @@
 +++
 title = "Resources"
 date = 2018-08-09T17:27:26+02:00
-weight = 25
+weight = 30
 chapter = true
-pre = "<b>4. </b>"
+pre = "<b>5. </b>"
 +++
 
 # Resources
