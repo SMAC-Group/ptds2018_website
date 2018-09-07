@@ -74,6 +74,14 @@ If the file is **a part of the data analysis**, then it makes sense to follow th
     # Bad
     regression.R
     ```
+    
+* If files should be run in a particular order, then use ascending names. 
+
+    ```{toml}
+    01-read.R
+    02-clean.R
+    02-plot.R
+    ```
 
 If the file is used **in a pacakge**, than slightly different rules should be taken care of:
 
@@ -83,7 +91,7 @@ If the file is used **in a pacakge**, than slightly different rules should be ta
     - `AllGenerics.R` (or `AllGeneric.R`), a file that stores all S4 generic functions.
     - `zzz.R`, a file that contains `.onLoad()` and friends.
  
-* If the file contains only one function, name it with the function name.
+* If the file contains only one function, name it by the function name.
 
 * Use `methods-` prefix for S4 class methods.
  
@@ -388,7 +396,37 @@ print(paste(i, "is even"))
         median = median(x)
     )
     ```
+
+* If the condition in `if` statement expands into several lines, than each condition should end with a logical operator, NOT start with it.
+
+    ```{toml}
+    # Good
+    if (some_very_long_name_1 == 1 &&
+        some_very_long_name_2 == 1 ||
+        some_very_long_name_3 %in% some_very_long_name_4)
+        
+    # Bad
+    if (some_very_long_name_1 == 1
+        && some_very_long_name_2 == 1
+        || some_very_long_name_3 %in% some_very_long_name_4)
+    ```
     
+    I know some people who are completely against it. See the next bullet why I believe it is better.
+    
+* If the statement, which contains operators, expands into several lines, than each line should end with an operator, not start with it. Sometimes, it makes sense to split a formula into meaningful chunks.
+
+    ```{toml}
+    # Good 
+    normal_pdf <- 1 / sqrt(2 * pi * d_sigma ^ 2) *
+        exp(-(x - d_mean) ^ 2 / 2 / s ^ 2)
+    
+    # Bad
+    normal_pdf <- 1 / sqrt(2 * pi * d_sigma ^ 2)
+        * exp(-(x - d_mean) ^ 2 / 2 / d_sigma ^ 2)
+    ```
+    
+    Not only it is ugly, but also syntactically wrong. In the second case, R will consider these two lines as two distinct statements: the first line will assign the value of `1 / sqrt(2 * pi * d_sigma ^ 2)` to `normal_pdf`, and the second line will throw an error, since `*` does not have the first argument. 
+
 * Each grammar statement of `dplyr` (after `%>%`) and `ggplot2` (after `+`) should start from a new line.
 
     ```{toml}
@@ -401,7 +439,7 @@ print(paste(i, "is even"))
         geom_point(aes(x = mpg, y = qsec, color = factor(am))) + 
         geom_line(aes(x = mpg, y = qsec, color = factor(am)))
     ```
-
+    
 ### Comments 
 
 * Comment your code. Always. Your collaborators and future-you will be very grateful. Comments starts by `#` followed by space and actual comment. 
@@ -522,6 +560,12 @@ print(paste(i, "is even"))
     # Bad 
     x <- 1; x <- x + 1
     ```
+    
+* Avoid using `setwd("/Users/irudnyts/path/that/only/I/have")`. Almost surely your collaborators will have different paths, which makes the project not portable. Instead, use `here::here()` function from `here()` package (for details see next tutorial).
+
+* Avoid using `rm(list = ls())`. This statement delets all objects from the global enviroment, and gives you an illusion of a fresh R start (for details see next tutorial).
+
+If you have read until this moment, you deserve a prize. There is a magic key combination `Command+Shift+A` that reformats selected code: add spaces and indent it. Do not use it exessively though!
 
 ### References 
 
@@ -532,3 +576,4 @@ print(paste(i, "is even"))
 * [Colin Gillespie’s R style guide](https://csgillespie.wordpress.com/2010/11/23/r-style-guide/)
 * [The State of Naming Conventions in R](https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf)
 * [Consistent naming conventions in R](https://www.r-bloggers.com/consistent-naming-conventions-in-r/)
+* [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
