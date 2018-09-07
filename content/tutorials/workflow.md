@@ -1,7 +1,7 @@
 +++
 title = "R Coding Style Guide"
-date =  2018-09-03T12:06:38+02:00
-weight = 5
+date =  2018-09-03T11:19:38+02:00
+weight = 10
 +++
 
 > It’s like agreeing that we will all drive on the left or the right. A hallmark of civilization is following conventions that constrain your behavior a little, in the name of public safety.

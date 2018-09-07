@@ -1,6 +1,6 @@
 +++
 title = "R Coding Style Guide"
-date =  2018-09-03T12:06:38+02:00
+date =  2018-09-03T11:18:38+02:00
 weight = 5
 +++
 
