@@ -497,7 +497,7 @@ print(paste(i, "is even"))
     
 * In a function call, arguments can be specified by position, by complete name, or by partial name. Never specify by partial name and never mix by position and by complete name.
 
-    ```{taml}
+    ```{toml}
     # Good 
     mean(x, na.rm = TRUE)
     rnorm(10, 0.2, 0.3)

@@ -1,5 +1,5 @@
 +++
-title = "R Coding Style Guide"
+title = "Project-oriented workflow"
 date =  2018-09-03T11:19:38+02:00
 weight = 10
 +++
@@ -49,45 +49,6 @@ name_of_project/
 |-  .gitignore
 |-  name_of_project.Rproj
 |-  README.md
-
-
-
-|-  src/
-|   |-  dev/
-|   |   |-  escalate_implementation/
-|   |   |   |-  src/
-|   |   |   |   |-  main/
-|   |   |   |   |   |-  main.xml
-|   |   |   |-  config.xml
-|   |   |   |-  pom.xml
-|   |   |-  test/
-|   |   |   |-  test1.R
-|   |   |   |-  ...
-|   |   |-  install_dependencies.R
-|   |-  main/
-|   |   |-  doc/
-|   |   |   |-  doc.md
-|   |   |-  package/
-|   |   |   |-  man/
-|   |   |   |   |-  [function_name].Rd
-|   |   |   |-  R/
-|   |   |   |   |-  [function_name].R
-|   |   |   |-  .Rbuildignore
-|   |   |   |-  DESCRIPTION
-|   |   |   |-  [package].Rproj
-|   |   |   |-  NAMESPACE
-|   |   |-  resources/
-|   |   |   |-  repo/
-|   |   |   |   |-  src/
-|   |   |   |   |   |-  contrib/
-|   |   |   |   |   |   |-  [dependency_name].tar.gz
-|   |   |   |   |   |   |-  ...
-|   |   |   |-  install_package.R
-|-  .gitignore
-|-	.project
-|-  assembly-complete-r.xml
-|-  assembly-doc-md.xml
-|-  pom.xml
 ```
 
 - Typicall organization includes... (picture, references)
