@@ -15,26 +15,19 @@ In this tutorial we will learn key aspects of making a research project:
 - portable 
 - self-contained
 
-In data science context, reproducibility means that the whole analysis can be recreated (or repeated) from the fresh start and raw data and get exactly the same results. It means, for instance, that if the analysis involves generating random numbers, then one has to set a seed (an initial state of a random generator) to obtain the same random split each time. Ideally, everyone should have an access to data and software to replicate analysis. It is not always a case, since data can be private, etc. Why this is a big deal? First off, it gives more credibility to the research, because it can be verified and validated by a third party. And also it makes research easier to extend.
+In data science context, reproducibility means that the whole analysis can be recreated (or repeated) from the fresh start and raw data and get exactly the same results. It means, for instance, that if the analysis involves generating random numbers, then one has to set a seed (an initial state of a random generator) to obtain the same random split each time. Ideally, everyone should have an access to data and software to replicate analysis. It is not always a case, since data can be private, etc. Why this is a big deal? First off, it gives more credibility to the research, because it can be verified and validated by a third party. Further, keeping the flow of analysis reproducable, makes it easier to extend.
 
-Portability means that regardless the operating system or a computer, for minimal given prerequisits, the project would work. For instance, if the project uses a particular package that works only on Windows, then it is not portable. Or if 
+Portability means that regardless the operating system or a computer, for minimal given prerequisits, the project would work. For instance, if the project uses a particular package that works only on Windows, then it is not portable. The project is also not considered as portable, if it utilizes a particular computer settings, such as absolute paths instead of relative to your project folder (e.g., when reading the data or saving plots to files). Normally, you should be able to run the code on your colaborator's machine without changing any lines in scripts.
 
-portability menas that regardless the system you use, or folder structure, the package will work.  how many years from  ... will still work. generate files 
+We call a project self-contained, when it has as few external dependencies on external world as possible. It does not mean that you cannot use packages, you can, and you should. However, using the function from the other project that only you have is not a good idea. Also scripts are not suppose to affect anything they did not creat. If you need, for instance, to save a processed data, then it should be saved separately, and not overwrite the raw data. 
 
-self-contained 
+There are no clear boundaries between these three properties, they are very close in meaning, and often overlap. As a concequence, techniques and practice we consider further improve all of them, rather than focusing on a particular one.
 
-
-These three terms are rather close in the meaning, and points we cover further will improve each of them.
-
-- portability
-- reproducibility 
-- Self-contained
-
-The size of the project increases exponentially. A project started as a harmless code snippet can easily pile up into a huge snowball of over hundred files with unstructured folder tree. 
-
-You might think that it is a yet another git / RStudio tutorial.
+Even if it might look like a yet another git / RStudio tutorial, this is a list of my recommendations based on my own experince and various posts.
 
 ### Project folder structure
+
+The size of the project increases exponentially. A project started as a harmless code snippet can easily pile up into a huge snowball of over hundred files with unstructured folder tree. In contrast to R packges, there is no one particular right folder structure for analysis projects. There are several references at the end of this page, that cover this issue.
 
 ```
 name_of_project/
