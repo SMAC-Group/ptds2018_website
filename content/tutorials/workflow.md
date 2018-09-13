@@ -68,39 +68,80 @@ Perhaps the first by importance folder is `scripts`. There you keep all your R s
 
 There are three important files in the project folder: `.gitignore`, `name_of_project.Rproj`, and `README.md`. The file `.gitignore` lists files that won't be added to Git system: LaTeX or C build artefacts, system files, very large files, or files generated for particlar cases. Further, the `name_of_project.Rproj` contains options and meta-data of the project: encoding, the number of spaces used for intendation, whether or not to restore a workspace with launch, etc. The `README.md` briefly describes all high-level information about the project, like an abstract of a paper.
 
-The proposed folder structure is far from being exhaustive. You might need to introduce other folders, such as `paper` (where `.tex` version of a paper lives), `sources` ( a place for your compiled code here, e.g. C++), `references`, `presentations`, `NEWS.md`, `TODO.md`, etc. At the same time, if one of these folders do not have any files inside, it is better to remove it.
+The proposed folder structure is far from being exhaustive. You might need to introduce other folders, such as `paper` (where `.tex` version of a paper lives), `sources` ( a place for your compiled code here, e.g. C++), `references`, `presentations`, `NEWS.md`, `TODO.md`, etc. At the same time, keeping an empty folders could be missleading, and it is better to remove them (unless you are planning to store anything in them in the future).  
 
-Packages [`ProjectTemplate`](http://projecttemplate.net/architecture.html), [`template`](https://github.com/Pakillo/template), [`templace`](https://github.com/cboettig/template), or forking [manuscriptPackage](https://github.com/jhollist/manuscriptPackage) or that [repo](http://www.statsravingmad.com/measure/sample-r-project-structure/) allow for more or less automated creation the proect structure. 
+Several R packages, namely [`ProjectTemplate`](http://projecttemplate.net/architecture.html), [`template`](https://github.com/Pakillo/template), and  [`template`](https://github.com/cboettig/template) are dedicated to project structures. Also it is possbile to construct a project tree by forking [manuscriptPackage repo](https://github.com/jhollist/manuscriptPackage) or [sample-r-project repo](http://www.statsravingmad.com/measure/sample-r-project-structure/). Using a package or forking a repo allow for automated structure generation, but at the same time introduce many redundand and unneccessary folders and files.
 
-===========================
-
-- Typicall organization includes... (picture, references)
-Some people argue, that this structure is very similar to R pacakge structure, why not then use R package file organization as below? ...
-
-    - not only R, but Bash, Python etc. scripts. 
-    - No separation for function definitions and function applications. 
-    - no place for .Rmd files. 
-    - 
-
-Packages: template
-
-
-Do not keep an empty folders, unless you are planning to store anything in them, since it could be missleading. 
+Finally, some scientists believe that all R projects should be in a shape of a packege. Indeed, one can store data in `\data`, R scripts in `\R`, documentation in `\man`, and the paper `\vignette`. The nice thing about it that anyone familiar with an R package structure can immediately grasp where each type of a file located. On the other hand, the structure of R pacakges is tailored to serve its purpose -- make a coherent *tool* for data scientists and not to produce a data product: there is no distiction between functions definitions and applications, no proper place for reports, and finally there are no place for other script languages that you can use (e.g, Bash, Python, etc.).
 
 ### Content of R files 
 
-- No `install.packages()`
-- No `rm(list = ls())`
-- No `setwd()`, use only relative paths. 
-- Always `set.seed()`, if the analysis involves random generation.
-- Do not repeat yourself. If the code is repeated more than three times, then wrap it into a function. 
-- Save files by `saveRDS` than by `save`.
-- Do not repeat your self. If the same piece of code, or simply the same logic is repeated, then it is better to wrap it into a function.
+While there are no rules how to organize your R code, there are several dos and don'ts that most of the time are not tought explicetly. I cover them below:
 
+- Do not use the function `install.packages()` inside your scripts. You are not suppose to (re)install packages each time when you run your files. By default it is normally assumed that all packages that are used by a script are already installed.
 
-### Inizializing a new project
+    If there are many of them to install, it is better to create a file `configure.R`, that will install all packages:
+    
+    ```{toml}
+    pkgs <- c("ggplot2", "plyr")
+    install.packages(pkgs)
+    ```
+    
+    The snippet above profits from the fact that `install.packages()` is a vectorized function. Anyway, most of the time, `install.packages()` is suppose to be called from the console, and not from the script.
 
-Disclaimer: the procedure below can be done in different ways. This particular way is no better than the others, but from author opinion has the best  
+- Do not use the function `require()`, unless it is a conscious choice. In contrast to `library()`, `require()` does not throw an error (only a warning) if the package is not installed.
+
+- Use a character representation of the package name. 
+
+    ```
+    # Good 
+    library("ggplot2")
+    
+    # Bad
+    library(ggplot2)
+    ```
+    
+- Load *only* those packages that are actually used in the script. Load packages at the beggning of the script.
+
+- Do not use `rm(list = ls())` that erase your global enviroment. First, it could delete accidentaly the precious heavy long-time-to-build object. Second, it gives an illusion of the fresh start of R.
+
+- Do not use `setwd("/Users/irudnyts/path/that/only/I/have")`. It is very unlikely that someone except you will have the same path to the project. Instead, use a package `here` and relative paths. The package `here` automatically recognizes the path to the project, and starts from there: 
+
+    ```{toml}
+    # Good
+    library("here")
+    
+    cars <- read.csv(file = here("data", "raw", "cars.csv"))
+    
+    # Bad
+    setwd("/Users/irudnyts/path/that/only/I/have/data/raw")
+    cars <- read.csv(file = "cars.csv")
+    ```
+    
+- If your script involves random generation, then set a seed by `set.seed()` function to get the same random split each time: 
+
+    ```{toml}
+    # Good 
+    set.seed(1991)
+    x <- rnorm(100)
+    
+    # Bad 
+    x <- rnorm(100)
+    ```
+
+- Do not repeat yourself (*DRY*). In R context it means the following: if the code repeated more than to times, you had better wrap it into a function:
+
+- Separate function definitions from thir applications.
+
+- Use `saveRDS()` instead of `save()`: 
+
+> - `save()` saves the objects and their names together in the same file; `saveRDS()` only saves the value of a single object (its name is dropped).
+> - `load()` loads the file saved by `save()`, and creates the objects with the saved names silently (if you happen to have objects in your current environment with the same names, these objects will be overridden); `readRDS()` only loads the value, and you have to assign the value to a variable.
+> <cite> Yihui Xie </cite>
+
+### Inizializing a new data analysis project
+
+Disclaimer: the procedure below can be done in different ways. This particular way is no better than the others, but from author opinion has the most logical flow.
 
 Prerequisites:
 

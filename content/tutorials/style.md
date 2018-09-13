@@ -486,7 +486,7 @@ print(paste(i, "is even"))
 
 * Use `<-` for assignment, NOT `=`.
 
-* Use `library()` instead of `require()`, unless it is a conscious choice. Package names should be strings (avoid NSE).
+* Use `library()` instead of `require()`, unless it is a conscious choice. Package names should be characters (avoid NSE - non-standard evaluation).
     ```{toml}
     # Good
     library("dplyr")
