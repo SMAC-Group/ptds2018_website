@@ -207,6 +207,7 @@ Steps:
 4. Push changes by `git push`. Merge changes if needed.
 
 *** References 
+
 - [R packages](http://r-pkgs.had.co.nz/)
 - [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
 - [`save()` vs `saveRDS()`](https://yihui.name/en/2017/12/save-vs-saverds/)
