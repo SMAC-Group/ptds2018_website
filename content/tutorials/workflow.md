@@ -206,11 +206,11 @@ Steps:
 
 4. Push changes by `git push`. Merge changes if needed.
 
-*** References 
+### References 
 
 - [R packages](http://r-pkgs.had.co.nz/)
 - [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
-- [`save()` vs `saveRDS()`](https://yihui.name/en/2017/12/save-vs-saverds/)
+- [save() vs saveRDS()](https://yihui.name/en/2017/12/save-vs-saverds/)
 - [Jupyter And R Markdown: Notebooks With R](https://www.datacamp.com/community/blog/jupyter-notebook-r#alternatives)
 - [A sample R project structure](http://www.statsravingmad.com/measure/sample-r-project-structure/)
 - [sample-r-project repo](https://github.com/IronistM/sample-r-project)
