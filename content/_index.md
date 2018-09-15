@@ -8,16 +8,12 @@ The objective of the website is to provide a support for *Programming tools in d
 
 This class is based on the textbook: "An Introduction to Statistical Programming Methods with R" , which is available here: <http://r.smac-group.com>. This document is **under development** and it is therefore preferable to always access the text online to be sure you are using the most up-to-date version.
 
-This class uses the `stat297` R package (and its dependencies). To install this package you can run the following commands in R. **Make sure to continuously update package every week, for we are adding new functions and instructions every day.**
+This class uses the `ptds2018` R package (and its dependencies). To install this package you can run the following commands in R. **Make sure to continuously update package every week, for we are adding new functions and instructions every day.**
 
-```toml
+```{toml}
 # Install dependencies
-install.packages(c("devtools","knitr","rmarkdown"))
+install.packages("devtools")
 
 # Install/Update the package from GitHub
-devtools::install_github("SMAC-Group/stat297")
-
-# Another way to update the package
-library(stat297)
-update_stat297()
+devtools::install_github("SMAC-Group/ptds2018")
 ```
