@@ -307,7 +307,7 @@ It is possible to display the margin in RStudio Source editor:
         # do something
     }
     else {
-    # do something else 
+        # do something else 
     }
     
     ```

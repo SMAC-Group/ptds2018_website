@@ -30,5 +30,5 @@ weight = 5
 - **Name:** [Iegor Rudnytskyi](http://hec.unil.ch/hec/recherche/fiche?pnom=irudnytskyi&dyn_lang=en)
 - **Email:** [Iegor.Rudnytskyi@unil.ch](mailto:Iegor.Rudnytskyi@unil.ch)
 - **Office:** EXT-105
-- **Office Hours:** Wednesdays 8:30AM - 10AM  
+- **Office Hours:** Tuesday 5:15PM - 7PM  
 - <i class='fa fa-fw fa-github'></i> [find me on GitHub](https://github.com/irudnyts)
