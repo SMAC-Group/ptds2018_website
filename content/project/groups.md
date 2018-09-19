@@ -32,4 +32,6 @@ weight = 25
     - **David Germano** (<David.Germano@unil.ch>)
     - Patrik Grandadam (<Patrik.Grandadam@unil.ch>)
     - Luca Bron (<Luca.Bron@unil.ch>)
-    - Louis Polet (<Louis.Polet@unil.ch>)
+    - Edgar Raisin (<Edgar.Raisin@unil.ch>)
+    - Vincent Lomazzi (<Vincent.Lomazzi@unil.ch>)
+    - (Louis Polet (<Louis.Polet@unil.ch>))
