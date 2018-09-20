@@ -20,6 +20,7 @@ weight = 25
     - **Emil Jellum** (<emil.jellum@unil.ch>)
     - Louis Polet (<louis.polet@unil.ch>)
     - Cristina Montecchi (<cristina.montecchi@unil.ch>)
+    - Louis Polet (<Louis.Polet@unil.ch>)
 * Group 4 
     - Luisa Pricken (<luisa.prickenbrandao@unil.ch>)
     - Bart Roes (<bart.roes@unil.ch>)
@@ -34,4 +35,3 @@ weight = 25
     - Luca Bron (<Luca.Bron@unil.ch>)
     - Edgar Raisin (<Edgar.Raisin@unil.ch>)
     - Vincent Lomazzi (<Vincent.Lomazzi@unil.ch>)
-    - (Louis Polet (<Louis.Polet@unil.ch>))
