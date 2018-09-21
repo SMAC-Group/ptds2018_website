@@ -22,13 +22,14 @@ weight = 25
     - Cristina Montecchi (<cristina.montecchi@unil.ch>)
     - Louis Polet (<Louis.Polet@unil.ch>)
 * Group 4 
+    - **Vanessa Armistead** (<vanessa.armistead@unil.ch>)
     - Luisa Pricken (<luisa.prickenbrandao@unil.ch>)
     - Bart Roes (<bart.roes@unil.ch>)
-    - **Vanessa Armistead** (<vanessa.armistead@unil.ch>)
+    - Ameni Rouatbi (<ameni.rouatbi@unil.ch>)
 * Group 5
+    - **Lumia Claramunt** (<Lumia.claramunt@unil.ch>)
     - Julien Kleinmann (<Julien.kleinmann@unil.ch>)
     - Constance Havret (<Constance.havret@unil.ch>)
-    - **Lumia Claramunt** (<Lumia.claramunt@unil.ch>)
 * Group 6 (The Jonquilles)
     - **David Germano** (<David.Germano@unil.ch>)
     - Patrik Grandadam (<Patrik.Grandadam@unil.ch>)
