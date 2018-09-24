@@ -7,7 +7,6 @@ weight = 25
 * Group 1
     - **Laura Agnese Marzorati** (<Laura.Marzorati@unil.ch>)
     - Sara Miric (<Sara.Miric@unil.ch>)
-    - Marianne Ortner (<Marianne.Ortner@unil.ch>)
     - Federico Baldo (<Federico.Baldo@unil.ch>)
     - Marina Rezzonico (<Marina.Rezzonico@unil.ch>)
 * Group 2 (Myama)
