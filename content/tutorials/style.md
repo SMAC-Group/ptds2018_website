@@ -1,5 +1,6 @@
 +++
 title = "R Coding Style Guide"
+author = "Iegor Rudnytskyi"
 date =  2018-09-03T11:18:38+02:00
 weight = 5
 +++
@@ -13,6 +14,8 @@ weight = 5
 A language is a tool that allows human beings to interact and communicate with each other. The clearer we express ourselves, the better an idea is transferred from our mind to the other. The same applies to programming languages: concise, clear and consistent codes are easier to read and/or edit. It is especially important, if you have collaborators, who depend on your code. However, even if you don't, keep in mind that at some point in time, you might come back to your code, for example, to fix an error. And if you did not follow consistently your coding style, reviewing your code can take much longer, than you expected. In this context, taking care of your audience means to make your code as readable as possible.
 
 There is no such thing as a "correct" coding style, as there is no such thing as the best color. At the end of the day, the coding style is a set of developers' preferences. If you are coding alone, sticking to your coding style and being consistent is more than enough. The story is a bit different if you are working in a team: it is crucial to agree on a convention beforehand and make sure that everyone follows it. 
+
+<img src="/tutorials/names.jpg" alt="map" width="400px"/> 
 
 Even though there is no an official style guide, R is mature and steady enough to have an "unofficial" convention. In this tutorial, you will learn these "unofficial" rules, their deviations, and most common styles.
 
