@@ -1,6 +1,5 @@
 +++
 title = "R Coding Style Guide"
-author = "Iegor Rudnytskyi"
 date =  2018-09-03T11:18:38+02:00
 weight = 5
 +++

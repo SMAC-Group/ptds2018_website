@@ -1,6 +1,5 @@
 +++
 title = "Project-oriented workflow"
-author = "Iegor Rudnytskyi"
 date =  2018-09-03T11:19:38+02:00
 weight = 10
 +++
