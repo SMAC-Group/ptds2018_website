@@ -580,3 +580,4 @@ If you have read until this moment, you deserve a prize. There is a magic key co
 * [The State of Naming Conventions in R](https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf)
 * [Consistent naming conventions in R](https://www.r-bloggers.com/consistent-naming-conventions-in-r/)
 * [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+* Picture is taken from [R Memes For Statistical Fiends](https://www.facebook.com/Rmemes0/) Facebook page.

@@ -16,11 +16,12 @@ weight = 25
     - Youness Zarhloul (<youness.zarhloul@unil.ch>)
     - Maurizio Griffo (<maurizio.griffo@unil.ch>)
     - Mohit Mehrotra (<mohit.mehrotra@unil.ch>)
-* Group 3
+* Group 3 (ggplot3)
     - **Emil Jellum** (<emil.jellum@unil.ch>)
     - Louis Polet (<louis.polet@unil.ch>)
     - Cristina Montecchi (<cristina.montecchi@unil.ch>)
     - Louis Polet (<Louis.Polet@unil.ch>)
+    - Azza Kammoun (<azza.kammoun@unil.ch>)
 * Group 4 
     - **Vanessa Armistead** (<vanessa.armistead@unil.ch>)
     - Luisa Pricken (<luisa.prickenbrandao@unil.ch>)
