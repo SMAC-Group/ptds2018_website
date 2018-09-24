@@ -8,7 +8,6 @@ weight = 25
     - **Laura Agnese Marzorati** (<Laura.Marzorati@unil.ch>)
     - Sara Miric (<Sara.Miric@unil.ch>)
     - Federico Baldo (<Federico.Baldo@unil.ch>)
-    - Marina Rezzonico (<Marina.Rezzonico@unil.ch>)
 * Group 2 (Myama)
     - **Ayrton Rua** (<ayrton.gomesmartinsrua@unil.ch>)
     - Ali Karray (<mohamedali.karray@unil.ch>)
