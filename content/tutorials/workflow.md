@@ -207,7 +207,7 @@ Steps:
 4. Connect your local repo to your Github repo by 
     
     ```{toml}
-    git remote add origin git@github.com:irudnyts/test.git
+    git remote add origin git@github.com:irudnyts/beer.git
     git push -u origin master
     ```
     
