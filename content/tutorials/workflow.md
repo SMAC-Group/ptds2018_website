@@ -192,7 +192,9 @@ Steps:
 
     <img src="/tutorials/bash.png" alt="map" width="400px"/> 
     
-    Now all you changes are recoreded locally. 
+    Now all you changes are recoreded locally.
+    
+    Note also that Git does not record empty folders.
 
 3. Create a [new repo](https://github.com/new) in GitHub (the same procedure holds for Bitbucket and Gitlab):
 
@@ -213,7 +215,7 @@ Steps:
     
     <img src="/tutorials/bash2.png" alt="map" width="400px"/> 
     
-    Refresh the page at your browser to ensure that changes appear at Github repo.
+    Refresh the page at your browser to ensure that changes appear at Github repo (do not freak out if you do not see all folders you have created, Git does not record empty folders).
     
 ### Working with an existing data analysis project 
 
