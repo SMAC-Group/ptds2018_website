@@ -38,37 +38,61 @@ An example of the output would be:
 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, 16, 17, Fizz, 19, Buzz, Fizz, 22, 23, Fizz, Buzz, 26, Fizz, 28, 29, FizzBuzz, 31, 32, Fizz, 34, Buzz, Fizz, ...
 ```
 #### Problem 2: Map
-Using the same tools we used in class, create a simple map to represent current standing in the Big Ten football conference. More specifically, the goal of this problem is to reproduce as closely as possible the map below:
+Using the same tools we used in class, create a simple map to represent the volume of the real estate market in Switzerland. More specifically, the goal of this problem is to reproduce as closely as possible the map below:
 
 <img src="/homeworks/map_hw2.png" alt="map" width="400px"/> 
 
-Note that the code below was used to download the data needed for this graph:
+Note that the code below was used to scrap the data needed for this graph:
 
 ```{toml}
-library(maps)
-library(ggmap)
-library(rvest)
+# Please do not forget to update ptds2018
 
-# Define webpage
-big10 = read_html("http://www.bigten.org/library/stats/fb-confsked.html#standings")
+library("rworldmap")
+library("rworldxtra")
+library("ggmap")
+library("tidyverse")
+library("magrittr")
+library("ptds2018")
 
-# Get uni names
-big10 %>% 
-    html_nodes(".b1gfbstats:nth-child(9) td:nth-child(1) , .b1gfbstats:nth-child(6) td:nth-child(1)") %>% 
-    html_text() -> uni_name
-uni_name = paste(uni_name,"University")
+cities = data.frame(
+    name = c("zurich", "bern", "lausanne", "geneva", "basel"),
+    language = c("german", "german", "french", "french", "german"),
+    stringsAsFactors = FALSE
+)
 
-# Find uni locations
-uni_coord = data.frame(geocode(uni_name))
+# Scrap prices from comparis.ch
+#-------------------------------------------------------------------------------
 
-# Get win rate
-big10 %>% 
-    html_nodes("td:nth-child(7)") %>%
-    html_text() -> uni_wp
-uni_coord$wp = 100*as.numeric(uni_wp[1:length(uni_name)])
+volumes <- sapply(cities$name, get_volume)
 
-# Get division
-uni_coord$conf = rep(c("East Division","West Division"), each = length(uni_name)/2)
+cities <- cbind(
+    cities,
+    data.frame(volume = volumes)
+)
+
+# ...or use dplyr
+# cities <- cities %>%
+#     dplyr::mutate(volume = volumes)
+
+# Define cities' coordinates
+#-------------------------------------------------------------------------------
+
+cities <- cbind(
+    cities,
+    geocode(location = cities$name, source = "dsk")
+)
+
+
+# Draw the map
+#-------------------------------------------------------------------------------
+
+world_map <- getMap(resolution = "high")
+
+which(sapply(1:243, function(x) world_map@polygons[[x]]@ID) == "Switzerland")
+
+switzerland <- world_map@polygons[[40]]@Polygons[[1]]@coords %>% as_tibble()
+
+# your code goes here
 ```
 
 #### Problem 3: 3D-random walk

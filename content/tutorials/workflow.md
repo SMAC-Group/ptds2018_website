@@ -9,17 +9,19 @@ weight = 10
 
 ### Introduction
 
-In this tutorial we will learn key aspects of making a research project:
+In this tutorial we will learn key aspects of making a good research project:
 
 - reproducible
 - portable 
 - self-contained
 
-In data science context, reproducibility means that the whole analysis can be recreated (or repeated) from the fresh start and raw data and get exactly the same results. It means, for instance, that if the analysis involves generating random numbers, then one has to set a seed (an initial state of a random generator) to obtain the same random split each time. Ideally, everyone should also have an access to data and software to replicate analysis (it is not always the case, since data can be private). Why this is a big deal? First off, it gives more credibility to the research, because it can be verified and validated by a third party. Further, keeping the flow of analysis reproducible, makes it easier to extend.
+In data science context, reproducibility means that the whole analysis can be recreated (or repeated) from the fresh start and raw data and get exactly the same results. It means, for instance, that if the analysis involves generating random numbers, then one has to set a seed (an initial state of a random generator) to obtain the same random split each time. Ideally, everyone should also have an access to data and software to replicate your analysis (it is not always the case, since data can be private). 
 
-Portability means that regardless the operating system or a computer, for minimal given prerequisites, the project would work. For instance, if the project uses a particular package that works only on Windows, then it is not portable. The project is also not considered as portable, if it utilizes a particular computer settings, such as absolute paths instead of relative to your project folder (e.g., when reading the data or saving plots to files). Normally, you should be able to run the code on your collaborator's machine without changing any lines in scripts.
+Portability means that regardless the operating system or a computer, for minimal given prerequisites, the project should work. For instance, if the project uses a particular package that works only on Windows, then it is not portable. The project is also not considered as portable, if it utilizes a particular computer settings, such as absolute paths instead of relative to your project folder (e.g., when reading the data or saving plots to files). Normally, you should be able to run the code on your collaborator's machine without changing any lines in scripts. 
 
-We call a project self-contained, when it has as few external dependencies as possible. It does not mean that you cannot use packages. You can, and you should. However, using the function from the other project that only you have is not a good idea. Also scripts are not suppose to affect anything they did not create. If you need, for instance, to save a processed data, then it should be saved separately, and not overwrite the raw data. 
+We call a project self-contained, when you have everything you need at hand (i.e., in the folder of your project) and your porject does not affect anything it did not create. The project should not use a function, which you created in the other project five years ago -- it is very likely that no one else has this function. Further, if you need, for instance, to save a processed data, then it should be saved separately, and not overwrite the raw data.
+
+Why this is a big deal? First off, it gives more credibility to the research, because it can be verified and validated by a third party. Further, keeping the flow of analysis reproducible, portable and self-contained makes it easier to extend.
 
 There are no clear boundaries between these three properties, they are very close in meaning, and often overlap. As a consequence, techniques and practice we consider further improve all of them, rather than focusing on a particular one.
 
@@ -35,7 +37,7 @@ The folder structure of R packages is a subject to a regulation of community (CR
 
 In contrast to R packages, there is no a single right folder structure for analysis projects. Below, I present a simple yet extensible folder structure for data analysis project, based on several references that cover this issue.
 
-```
+```{toml}
 name_of_project/
 |-  data
 |   |-  raw
@@ -89,7 +91,7 @@ While there are no rules how to organize your R code, there are several dos and 
 
 - Use a character representation of the package name. 
 
-    ```
+    ```{toml}
     # Good 
     library("ggplot2")
     
@@ -125,7 +127,24 @@ While there are no rules how to organize your R code, there are several dos and 
     x <- rnorm(100)
     ```
 
-- Do not repeat yourself (*DRY*). In R context it means the following: if the code repeated more than to times, you had better wrap it into a function:
+- Do not repeat yourself (*DRY*). In R context it means the following: if the code repeated more than to times, you had better wrap it into a function.
+
+    ```{toml}
+    # Better
+    fix_missing <- function(x) {
+        x[x == -99] <- NA
+        x
+    }
+    df[] <- lapply(df, fix_missing)
+    
+    # Bad
+    df$a[df$a == -99] <- NA
+    df$b[df$b == -99] <- NA
+    df$c[df$c == -98] <- NA
+    df$d[df$d == -99] <- NA
+    df$e[df$e == -99] <- NA
+    df$f[df$g == -99] <- NA
+    ```
 
 - Separate function definitions from their applications.
 
@@ -173,7 +192,9 @@ Steps:
 
     <img src="/tutorials/bash.png" alt="map" width="400px"/> 
     
-    Now all you changes are recoreded locally. 
+    Now all you changes are recoreded locally.
+    
+    Note also that Git does not record empty folders.
 
 3. Create a [new repo](https://github.com/new) in GitHub (the same procedure holds for Bitbucket and Gitlab):
 
@@ -187,14 +208,14 @@ Steps:
     
 4. Connect your local repo to your Github repo by 
     
-    ```
-    git remote add origin git@github.com:irudnyts/test.git
+    ```{toml}
+    git remote add origin git@github.com:irudnyts/beer.git
     git push -u origin master
     ```
     
     <img src="/tutorials/bash2.png" alt="map" width="400px"/> 
     
-    Refresh the page at your browser to ensure that changes appear at Github repo.
+    Refresh the page at your browser to ensure that changes appear at Github repo (do not freak out if you do not see all folders you have created, Git does not record empty folders).
     
 ### Working with an existing data analysis project 
 
@@ -235,3 +256,4 @@ Steps:
 - [A minimal Project Tree in R](https://talesofr.wordpress.com/2017/12/12/a-minimal-project-tree-in-r/)
 -[ProjectTemplate](http://projecttemplate.net)
 - [Writing a paper with RStudio](https://blog.davisvaughan.com/post/writing-a-paper-with-rstudio/)
+- [Reproducibility vs. Replicability: A Brief History of a Confused Terminology](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5778115/)

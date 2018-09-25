@@ -14,6 +14,8 @@ A language is a tool that allows human beings to interact and communicate with e
 
 There is no such thing as a "correct" coding style, as there is no such thing as the best color. At the end of the day, the coding style is a set of developers' preferences. If you are coding alone, sticking to your coding style and being consistent is more than enough. The story is a bit different if you are working in a team: it is crucial to agree on a convention beforehand and make sure that everyone follows it. 
 
+<img src="/tutorials/names.jpg" alt="map" width="400px"/> 
+
 Even though there is no an official style guide, R is mature and steady enough to have an "unofficial" convention. In this tutorial, you will learn these "unofficial" rules, their deviations, and most common styles.
 
 ### Naming 
@@ -577,3 +579,4 @@ If you have read until this moment, you deserve a prize. There is a magic key co
 * [The State of Naming Conventions in R](https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf)
 * [Consistent naming conventions in R](https://www.r-bloggers.com/consistent-naming-conventions-in-r/)
 * [Project-oriented workflow](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+* Picture is taken from [R Memes For Statistical Fiends](https://www.facebook.com/Rmemes0/) Facebook page.
