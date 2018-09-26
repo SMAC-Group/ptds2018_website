@@ -16,7 +16,6 @@ weight = 25
     - Cristina Montecchi (<cristina.montecchi@unil.ch>)
     - Laura Agnese Marzorati (<Laura.Marzorati@unil.ch>)
     - Federico Baldo (<Federico.Baldo@unil.ch>)
-    - (?) Sara Miric (<Sara.Miric@unil.ch>)
 * Group 3 
     - **Vanessa Armistead** (<vanessa.armistead@unil.ch>)
     - Luisa Pricken (<luisa.prickenbrandao@unil.ch>)
