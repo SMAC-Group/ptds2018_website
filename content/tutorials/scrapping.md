@@ -1,7 +1,7 @@
 +++
 title = "Web-scrapping in R"
-date =  2018-09-03T11:20:38+02:00
-weight = 15
+date =  2018-09-03T11:21:38+02:00
+weight = 20
 +++
 
 
