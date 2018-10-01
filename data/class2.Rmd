@@ -1,0 +1,64 @@
+---
+title: "Untitled"
+author: "Samuel Orso"
+date: "9/25/2018"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    # theme: united
+    highlight: zenburn
+    number_sections: yes
+    fig_width: 7
+    fig_height: 6
+bibliography: bibliography.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. On other link [super book](htpps://ptds2018.netlify.com). ![](https://www.alumnihec.ch/wp-content/uploads/2015/03/unilogo_bleu_300dpi-e1431428186368.jpg)
+
+When you click the __*Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:*__
+
+```{r cars}
+summary(cars)
+```
+
+
+## Including Plots {#sec-includ}
+
+You can also embed plots, for example:
+
+```{r pressure, echo=TRUE, fig.width=3, fig.height=4, fig.align='right'}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+To create an unordered list:   
+
+* A   
+    + A1
+    + A2   
+* B 
+* C
+
+Ordered list: 
+
+1. A
+2. B
+3. C
+
+$\alpha \Longleftrightarrow 1$
+
+
+Group | Student | Grade 
+--- | ---: | ---
+1 | Jean-Jacques | 4.5
+2 | Pierre-Louis | 5
+
+I am talking about section [Including plots](#sec-includ) @harrar2013taste @piqueras2012tasting
