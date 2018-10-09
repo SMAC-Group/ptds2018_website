@@ -1,0 +1,303 @@
+---
+title: 'Class #4: Data structure'
+author: "Samuel Orso"
+date: "10/9/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Preamble
+Double
+```{r}
+2
+2.2
+is.double(2)
+```
+
+Integer
+```{r}
+2L
+is.integer(2L)
+```
+
+Boolean
+```{r}
+TRUE
+T
+FALSE
+F
+```
+
+Characters
+```{r}
+"a"
+a
+is.character("a")
+```
+
+
+```{r}
+a <- 1L
+is.character(a)
+is.integer(a)
+```
+
+## Vector
+Let's create a vector of characters:
+```{r}
+players <- c("Rafael Nadal", "Roger Federer", "Novak Djokovic", "Juan Martin del Potro", "Alexander Zverev")
+is.vector(players)
+typeof(players)
+```
+
+Vector of integers:
+```{r}
+ATP_rankings <- c(1L, 2L, 3L, 4L, 5L)
+```
+
+Vector function (not useful)
+```{r}
+vector(mode = "integer", length = 5)
+```
+
+Vector of boolean
+```{r}
+c(T,F,T,T)
+```
+
+Mix types
+```{r}
+test <- c("Rafael Nadal", 1L, 2.5, T)
+typeof(test)
+mix_test2 <- c(T,F,T,F,2.0)
+typeof(mix_test2)
+```
+
+### Subsetting
+```{r}
+# subsetting
+players[1]
+
+# subsetting without first obesrvation
+players[-1]
+
+# subset 2nd 4th
+players[c(2,4)]
+
+# subset without 2nd 4th
+players[-c(2,4)]
+
+# subset the first of (subset without 2nd 4th)
+players[-c(2,4)][1]
+```
+
+
+### Labelling
+```{r}
+names(ATP_rankings) <- players
+ATP_rankings
+names(ATP_rankings)
+```
+Subsetting  with labels
+
+```{r}
+ATP_rankings["Rafael Nadal"]
+```
+
+### Other
+
+Useful functions
+```{r}
+# size of the vector
+length(ATP_rankings)
+
+# sum
+prize_money <- c(103251975, 117773812, 119110890, 24742348, 11766124)
+sum(prize_money)
+
+# average
+mean(prize_money)
+
+# order / sort
+order(prize_money, decreasing = T)
+sort(prize_money)
+
+```
+
+
+## Matrix
+
+### Creation
+Matrix creation:
+```{r}
+mat <- matrix(1:15, ncol = 3, nrow = 5)
+mat <- matrix(1:15, ncol = 3, nrow = 5, byrow = T)
+```
+ 
+... by binding vectors:
+```{r}
+ATP_ranking <- c(1, 2, 3, 4, 5)
+grand_slam_win <- c(17, 20, 14, 1, 0)
+mat <- cbind(ATP_ranking, grand_slam_win)
+mat <- rbind(ATP_ranking, grand_slam_win)
+```
+
+
+### Verification
+Checking whether we have a matrix:
+```{r}
+is.matrix(mat)
+typeof(mat)
+```
+
+### Subsetting
+Subsetting a matrix:
+```{r}
+mat[1,1]
+mat[1,]
+mat[,2]
+mat[,-1]
+```
+
+### Labelling
+Labelling a matrix:
+```{r}
+rownames(mat)
+colnames(mat) <- players
+mat
+
+# delete names
+colnames(mat) <- NULL
+colnames(mat) <- players
+
+# subset by names
+mat[,"Rafael Nadal"]
+```
+
+### Other
+Matrix transpose:
+```{r}
+t(mat)
+```
+
+Matrix dimension:
+```{r}
+length(mat)
+dim(mat)
+```
+
+
+Matrix multiplication:
+```{r}
+mat * mat  # elementwise multuplication
+mat %*% t(mat)
+```
+
+
+Matrix inverse:
+```{r}
+B <- mat %*% t(mat)
+solve(B)
+
+solve(B) %*% B
+```
+
+
+
+## Array
+
+### Creation
+Create Array:
+```{r}
+my_array <- array(NA, dim = c(5,2,2))
+my_array[,,1] <- t(mat)
+my_array[,,2] <- cbind(prize_money, ATP_ranking)
+dimnames(my_array)[[1]] <- players
+dimnames(my_array)[[2]] <- c("ATP rankings", "Grand slam wins")
+dimnames(my_array)[[3]] <- c("2018-10-09", "2018-10-10")
+```
+
+
+
+### Verification
+```{r}
+is.array(my_array)
+typeof(my_array)
+dim(my_array)
+length(my_array)
+```
+
+
+## List
+
+### Creation
+```{r}
+players <- c("Rafael Nadal", "Roger Federer", "Novak Djokovic", "Juan Martin del Potro", "Alexander Zverev")
+date_of_birth <- c("3 June 1986", "8 August 1981", "22 May 1981", "23 September 1988", "20 April 1997")
+ATP_ranking <- c(1, 2, 3, 4, 5)
+grand_slam_win <- c(17, 20, 14, 1, 0)
+country <- c("Spain", "Switzerland", "Serbia", "Argentina", "Germany")
+prize_money <- c(103251975, 117773812, 119110890, 24742348, 11766124)
+
+my_list <- list(grand_slam_win, prize_money, players, c(T,F))
+```
+
+
+
+### Verification
+```{r}
+is.list(my_list)
+typeof(my_list)
+```
+
+
+### Subsetting
+```{r}
+my_list[[3]][1]
+```
+
+### Labelling
+```{r}
+my_list <- list(slam = grand_slam_win, money = prize_money, players = players, boolean = c(T,F))
+my_list[[1]]
+my_list$money
+
+```
+
+## Data frame
+
+### Creation
+```{r}
+my_df <- data.frame(
+  players, prize_money, ATP_rankings
+)
+```
+
+
+### Verification
+```{r}
+is.data.frame(my_df)
+typeof(my_df)
+```
+
+### Subsetting
+```{r}
+my_df[1,1] # same as matrix
+my_df$players
+```
+
+Adding a new entry
+```{r}
+# Adding country
+my_df$country <- country
+```
+
+
+### Labelling
+Same as matrix.
+
+### Other
+
