@@ -18,7 +18,7 @@ In this tutorial you will learn what is the web scraping, how to scrape using R,
 Web scraping is the process of collecting the data from the World Wide Web and transforming it to a structured format. Typically web scraping is refered to an automated procedure, even though formally it includes a manual human scraping. We distringuish several techniques of web scraping: 
 
 - Human manual copy-and-paste
-    The name is self-explanatory, that is when humans copy the content of the page and paste into a well-formated data sctructured. This method is very slow, but sometimes is unavoidable as the only solution (see legal section). For instance, one can copy all prices and names from the Vivino list directly into a data frame.
+    The name is self-explanatory, that is when humans copy the content of the page and paste into a well-formated data sctructured. This method is very slow, but sometimes is unavoidable as the only solution. For instance, one can copy all prices and names from the Vivino list directly into a data frame.
     
 - Text pattern matching
     This approach is the next step in web scraping. After fetching the page, regular expressions (regex) are used to match the pattern in the text. For example, you can get each character that starts with "Price:" and ends with "CHF".
@@ -31,15 +31,33 @@ Web scraping is the process of collecting the data from the World Wide Web and t
     
 - etc.
 
-In this tutorial we focus on HTML parsing approach.
+The focus of this tutorial is on the HTML parsing, and at the end of it you should be able to srape data using R. But there is one more thing.
 
-### robots.txt
+### Denial-of-service (DoS), crawl rate, and robots.txt
 
+Web pages are stored on servers, so that if there will be too many requests per a unit of time, they can became unavailible (i.e., shut down). When the server is not accessible by intended users, it is called denial-of-service (DoS). Often, this issue is exploited for DoS attacks, that is when websites are flooded with trafic (buffer overflow attacks) and stop responding. However, it could happen unintentional (e.g., an introduction of a new exciting website, which was developed to handle only a limited number of users). 
 
+Another concept we need to introduce is a *web crawling*, which has been used extenssively by the search engines, such as Google, Bing, for web indexing. This process is similar to web scraping, but after fetching the content of the web page, crawler extracts only hyperlinks. It means that web crawling also accesses the web page by sending requests. The number of such requests per unit of time is called a crawl rate. Each web crawling requests is the same as a request of a user. Therefore, if your crawler sends too many requests (crawl rate is too high), the server can cause the DoS.
 
-### Legal issues
+That is exactly what happens to Martijn Koster's server, when Charles Stross's web crawler caused DoS (if rumors are trusted). It triggered Martijn Koster to propose a new standard, a file `robots.txt` that stores a set of rules defining which parts of a website should not be accessed by web crawlers and bots.
 
-### Selectorgadget
+The same applies to web scraping, the number of requests should not be too high, and you should access only parts not listed in *robots.txt*.
+
+### Why web scraping could be bad?
+
+Over the years the reputation of the web scraping is decreasing. There are more and more people who ignore and violate not only *robots.txt*, but also Terms of Service (ToS) of websites.
+
+Remember the film "The Social Network"? At the beggning of the movie, the main character scrapes pictures of female students, and then creates a service to measure their attractiveness. This is a good example of unethical use. The topic is very subjective and controversial, therefore, you are at your own responsibility to define what is ethical and what is not (there is no `robots.txt` to define ethics). 
+### How to avoid troubles?
+
+Rules are simple: 
+
+1. Read carefully the Terms of Service.
+
+2. Inspect `robots.txt` to identify which parts can be accessed.
+
+3. Do not be too agressive with too frequent requests. If the crawl rate is not mentioned in `robot.txt` (section `crawl-delay:`), than use something meaninful, e.g. one request per 10 second.
+
 
 ### Workflow 
 
@@ -111,3 +129,4 @@ In this tutorial we focus on HTML parsing approach.
 - [Web Scraping in R: rvest Tutorial](https://www.datacamp.com/community/tutorials/r-web-scraping-rvest)
 - [Web scraping tutorial in R](https://towardsdatascience.com/web-scraping-tutorial-in-r-5e71fd107f32)
 - [Learn To Create Your Own Datasets — Web Scraping in R](https://towardsdatascience.com/learn-to-create-your-own-datasets-web-scraping-in-r-f934a31748a5)
+- [What is a denial-of-serive attack (DoS)?](https://www.paloaltonetworks.com/cyberpedia/what-is-a-denial-of-service-attack-dos)
