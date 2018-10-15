@@ -1,42 +1,37 @@
 +++
-title = "Web-scrapping in R"
+title = "Web scraping in R"
 date =  2018-09-03T11:21:38+02:00
 weight = 20
 +++
 
 
-Disclaimer: the course staff takes no responsibility of misuse of this tutorial. The technique below should use with a care and NOT FOR EVIL PUROPOSES :smiling_imp:
+Disclaimer: the course staff takes no responsibility of misuse of this tutorial. The technique below should be used with a care and NOT FOR EVIL PUROPOSES :smiling_imp:
 
-Imagine: you are invited to your significant one's parents for a dinner. You know that his father is a big fan of Swiss wine. Obviously (or maybe not), you want to impress his father. Reading all these big wine enceclopidia would not be too lame, and you decide to show off with your data science skills and build a story around Chasselas grapes. After an intence googling you realize that the desired dataset simply does not exist, and therefore, you have to collect it by yourself. You find a nice app Vivino, which is a great representative of the recent trends in wine. But how to get the data? Manually copy&pasting the content? And here you remember a nice tutorial you took in your Master...
+Imagine: you are invited to your significant one's parents' place for a dinner. You know that her father is a big fan of Swiss wine. Obviously (or maybe not), you want to impress her father. You are not an expert of wine, but you can "show off" with your data science skills and build a story around Chasselas grapes. After an intence googling you realize that the desired dataset simply does not exist, and therefore, you have to collect it by yourself. You find a nice app Vivino, which is a great representative of the recent trends in wine. But how to get the data? Manually copy&pasting the content? And here you remember a nice tutorial you took in your Master...
 
-Very often (if not always) data you need for analysis does not exist and you need to collect it by yourself. A vast majority of data we are interested in is user-generated content (heard of Web 2.0?). Moreover, the data could vary over the time (e.g., the rating of a particular wine). But all this information is located in Internet in human-readible format, that is you have an accesses to these data.
+Very often (if not always) well-structured data you need for analysis does not exist and you need to collect it somehow by yourself. Nowedays, a vast majority of data are user-generated content, presented in unstructured HTML format. But it is not the worst part -- the data typically is dynamic and vary over the time (e.g., the rating of a particular wine or your Facebook friend list). The good thing is that all information is located in Internet in human-readible format, that is you have an accesses to these data. Therefore, the problem is not in accessing the data, but how convert this information into the structured (think of tabular of spreadsheet-like) format. 
 
-Therefore, the problem is not in accessing but how convert this info into the structured format (think of tabular of spreadsheet-like). 
+In this tutorial you will learn what is the web scraping, how to scrape using R, and when it is legal.
 
+### Web scraping overview
 
-A vast majority of data in web presented in unstructured format (HTML tags). If you are  
+Web scraping is the process of collecting the data from the World Wide Web and transforming it to a structured format. Typically web scraping is refered to an automated procedure, even though formally it includes a manual human scraping. We distringuish several techniques of web scraping: 
 
-Indeed, in real life it is very likely that the dataset you need either does not exist or have not yet been collected. Further, some datasets are changing over the time, and you want to get a snapshot with some frequency. 
+- Human manual copy-and-paste
+    The name is self-explanatory, that is when humans copy the content of the page and paste into a well-formated data sctructured. This method is very slow, but sometimes is unavoidable as the only solution (see legal section). For instance, one can copy all prices and names from the Vivino list directly into a data frame.
+    
+- Text pattern matching
+    This approach is the next step in web scraping. After fetching the page, regular expressions (regex) are used to match the pattern in the text. For example, you can get each character that starts with "Price:" and ends with "CHF".
+    
+- Using API/SDK (socket programming)
+    Web APIs are interfaces, introduced by large websites, to allow getting the content of the web-pages (think of databases) directly by posing an HTTP requests. For example, Twitter has its API to search tweets, account activity, etc., so that anyone can get these data by sending an HTTP request. R, however, has a package called [twitteR](http://geoffjentry.hexdump.org/twitteR.pdf), that generates those requests for you (i.e., it can be considered as Software Development Kit, SDK for short).
+    
+- HTML parsing
+    Mostly web pages are generated dynamically from databases using a similar template and css selector. Identifying such css selectors allows mimicing the structure of databases' tables.
+    
+- etc.
 
-
-Very ofter (if not always) the data is changing (think of your FB friend's list), and you might want to get the data over the time in order to look at dynamic trends. 
-
-
-To compliment your cooking masterpiece you need to pick a bottle of a good white wine, prefferebly Chasselas. 
-
-Imagine your boss asks you to analize the market of Chasselas grapes wine. It is very likely that a desired dataset does not exist, and therefore, you have to create it by yourself. You, a big fan of wine, use 
-
-Often (if not always) the data you need for your analysis has not yet been collcted. 
-
-
-
-The data is not always 
-
-is not availible or hard to collect
-
-Very often data you need for your analysis does not exist in a nice (tabular or spreadsheet-like) format. 
-
-In this tutorial you will learn: 
+In this tutorial we focus on HTML parsing approach.
 
 ### robots.txt
 
