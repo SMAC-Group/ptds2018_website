@@ -19,6 +19,6 @@ Find here the code we used during the class.
 
 {{% button href="https://raw.githubusercontent.com/SMAC-Group/ptds2018_website/master/data/class5.R" icon="fa fa-fw fa-download" %}}Get R file from Lecture #5{{% /button %}}
 
-{{% button href="https://raw.githubusercontent.com/SMAC-Group/ptds2018_website/master/data/variety.html" icon="fa fa-fw fa-download" %}}Get slides from October 23 tutorial{{% /button %}}
 
+{{% button href="https://raw.githubusercontent.com/SMAC-Group/ptds2018_website/master/data/variety.html" icon="fa fa-fw fa-download" %}}Get slides from October 23 tutorial{{% /button %}}
 {{% button href="https://raw.githubusercontent.com/SMAC-Group/ptds2018_website/master/data/scrape.R" icon="fa fa-fw fa-download" %}}Get R file from October 23 tutorial{{% /button %}}
