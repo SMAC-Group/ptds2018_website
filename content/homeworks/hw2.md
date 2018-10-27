@@ -54,7 +54,7 @@ library("tidyverse")
 library("magrittr")
 library("ptds2018")
 
-cities = data.frame(
+cities <- data.frame(
     name = c("zurich", "bern", "lausanne", "geneva", "basel"),
     language = c("german", "german", "french", "french", "german"),
     stringsAsFactors = FALSE
