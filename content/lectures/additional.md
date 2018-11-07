@@ -25,6 +25,9 @@ Find here the code we used during the class.
 
 {{% button href="https://raw.githubusercontent.com/SMAC-Group/ptds2018_website/master/data/class6.R" icon="fa fa-fw fa-download" %}}Get R file from Lecture #6{{% /button %}}
 
+{{% button href="https://raw.githubusercontent.com/SMAC-Group/ptds2018_website/master/data/homework.html" icon="fa fa-fw fa-download" %}}Get slides from November 6 tutorial{{% /button %}}
+{{% button href="https://raw.githubusercontent.com/SMAC-Group/ptds2018_website/master/data/oprimize_hw.R" icon="fa fa-fw fa-download" %}}Get R file from November 6 tutorial{{% /button %}}
+
 ## Shiny App
 [Tutorials](https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/)
 [Application layout guide](https://shiny.rstudio.com/articles/layout-guide.html)
