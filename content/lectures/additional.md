@@ -32,3 +32,7 @@ Find here the code we used during the class.
 [Tutorials](https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/)
 [Application layout guide](https://shiny.rstudio.com/articles/layout-guide.html)
 {{% button href="https://raw.githubusercontent.com/SMAC-Group/ptds2018_website/master/data/class7.R" icon="fa fa-fw fa-download" %}}Get R file from Lecture #7{{% /button %}}
+
+## R-package
+Check [Hadley's book](http://r-pkgs.had.co.nz/)   
+The code of today's lecture is on a GitHub rep [here](https://github.com/SMAC-Group/test0)   

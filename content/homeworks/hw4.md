@@ -35,8 +35,8 @@ To begin with, create a (preferably private) GitHub repository for your group, a
 
 - Create a new file `is_inside.cpp`
 - Define a function `is_inside` in that file:
-    * The function should supply a matrix of the dimension `B x 2` and return a logical vector of length `B`, for which `TRUE` means that the point inside the circle, and `FLASE`, respectively, outside.
-    * There should be a `for` loop in the function that would define whether or not points inside the circle.
+    * The function should supply a matrix of the dimension `B x 2` and return a logical vector of length `B`, for which `TRUE` means that the point inside the circle, and `FALSE`, respectively, outside.
+    * There should be a `for` loop in the function that would define whether or not points are inside the circle.
 - Define a new R function `find_pi2` in `pi.R` that would use `is_inside` function instead of the native R `for` loop.
 - Document `find_pi2` function appropriately. 
 
