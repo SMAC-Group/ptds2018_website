@@ -26,108 +26,135 @@ To begin with, create a (preferably private) GitHub repository for your group, a
 
 In this problem we simplify the `find_pi` function in order to have two separated functions for simulation and vizualization (plotting) of simulated results. A nicely designed function should do one coherent action at a time. Further, the name of a function should be self-explanatrory, that is a user should be able to guess what function does by its name.
 
-- **a)** The function `find_pi` should do exactly one action, that is estimate $\pi$. Therefore, we need to introduce the following modifications:
+- **(a)** The function `find_pi` should do exactly one action, that is estimate $\pi$. Therefore, we need to introduce the following modifications:
 
     - Rename `find_pi` to `estimate_pi`
     - Remove `make_plot` arguemnt and the code chunk to plot the chart
 
-The function `estimate_pi` should return both the estimated value of $\pi$ and simulated points. The simulated points will be used for plotting afterwards, therefore, it makes sense to store them in a data frame with three columns: `x`, `y`, and a logical column `inside` (`TRUE` if a point inside a circle, and `FALSE` otherwise).
+    The function `estimate_pi` should return both the estimated value of $\pi$ and simulated points. The simulated points will be used for plotting afterwards, therefore, it makes sense to store them in a data frame with three columns: `x`, `y`, and a logical column `inside` (`TRUE` if a point inside a circle, and `FALSE` otherwise).
 
-As long as we need to return two objects, we keep them as elements of a list. Also, using S3 methodology, we assign a class `pi` to this list (to dispatch a `plot` method).
+    As long as we need to return two objects, we keep them as elements of a list. Also, using S3 methodology, we assign a class `pi` to this list (to dispatch a `plot` method).
 
-Incorporating these modifications, the function will look as follows:
+  Incorporating these modifications, the function will look as follows:
 
-```{toml}
-estimate_pi <- function(B = 5000, seed = 10) {
+  ```{toml}
+  estimate_pi <- function(B = 5000, seed = 10) {
 
-    # set a seed
-    set.seed(seed)
+      # set a seed
+      set.seed(seed)
 
-    # simulate B points
-    points <- data.frame(
-        x = runif(n = B, min = -1, max = 1),
-        y = runif(n = B, min = -1, max = 1),
-        inside = rep(NA, B)
-    )
+      # simulate B points
+      points <- data.frame(
+          x = runif(n = B, min = -1, max = 1),
+          y = runif(n = B, min = -1, max = 1),
+          inside = rep(NA, B)
+      )
 
-    # your loop goes here
-    # ...
+      # your loop goes here
+      # ...
 
-    # create a new list
-    rval <- list(
-        estimated_pi = estimated_pi,
-        points = points
-    )
+      # create a new list
+      rval <- list(
+          estimated_pi = estimated_pi,
+          points = points
+      )
 
-    # assign pi class to rval
-    class(rval) <- "pi"
+      # assign pi class to rval
+      class(rval) <- "pi"
 
-    # return rval
-    return(rval)
+      # return rval
+      return(rval)
 
-}
-```
+  }
+  ```
 
-- **b)** Now, we can initialize the function to visualize our simulation. The function should take a returned value of `estimate_pi` as the argument, and produce a plot based on `points` element of such object:
+- **(b)** Now, we can initialize the function to visualize our simulation. The function should take a returned value of `estimate_pi` as the argument, and produce a plot based on `points` element of such object:
 
-```{toml}
-plot.pi <- function(x) {
+  ```{toml}
+  plot.pi <- function(x) {
 
-    points <- x[["points"]]
+      points <- x[["points"]]
 
-    # plot points
+      # plot points
 
-}
-```
+  }
+  ```
 
-Note that this function returns nothing, but plots a chart. To call this function you can simply use `plot(x)`, where `x` is a result of the function `estimate_pi`.
+  Note that this function returns nothing, but plots a chart. To call this function you can simply use `plot(x)`, where `x` is a result of the function `estimate_pi`.
 
 - **bonus**
 
-Validate arguments in each function, for instance, make sure that `B` and `seed` are positive and integer numbers, etc.
+  Validate arguments in each function, for instance, make sure that `B` and `seed` are positive and integer numbers, etc.
 
 #### Problem 1: build an R package
 
 In this problem, we simply wrap these function into a shape of a package.
 
-- Create a package `ptds2018hw4gN` (where `N` is your group number) in RStudio: File -> New Project... -> New Directory -> R Package. Do not forget to select "Package w/ Rcpp" in "Type" and check the box "Create a git repository".
+- Create a package `ptds2018hw4gN` (where `N` is your group number) in RStudio: File -> New Project... -> New Directory -> R Package. Do not forget to check the box "Create a git repository".
 
 - Record your changes and commit by `git add --all` and `git commit -m "Initialize the structure of the package."`. You can use build-in RStudio toolbar instead of `Shell` commands.
 
 - Everything what we have done so far are local changes on your computer. Now we need to create a new GitHub repo `ptds2018hw4gN` (where `N` is your group number) and synchronize it with your local git repo by:
 
-```{toml}
-git remote add origin git@github.com:YOURUSERNAME/ptds2018hw4g0.git
-git push -u origin master
-```
+  ```{toml}
+  git remote add origin git@github.com:YOURUSERNAME/ptds2018hw4g0.git
+  git push -u origin master
+  ```
 
 - Copy the function `estimate_pi()` and `plot.pi()` from the previous problem into file `pi.R` in `\R` folder. Commit.
 
-- Document the function `estimate_pi` and `plot.pi` using roxygen2 comments. Use `devtools::document()` to generate help files afterwards. Do not forget to specify `@export` in roxygen2 comments to export functons into NAMESPACE (make it visible outside the package). Commit.
+- Document the function `estimate_pi` and `plot.pi` using `roxygen2` comments. Use `devtools::document()` to generate help files afterwards. Do not forget to specify `@export` in `roxygen2` comments to export functions into NAMESPACE (make it visible outside the package). Commit.
 
 - Fill in the DESCRIPTION file. Commit.
 
-- Clean up the auto-generated file `hello.R`, `rcpp_hello.cpp`, `hello.Rd`, `rcpp_hello.Rd` from `R`, `src`, and `man` directories. Commit.
+- Clean up the auto-generated file `hello.R` and `hello.Rd`, from `\R` and `\man`, respectively. Commit.
+
+- Remove `NAMESPACE` file, since it was not auto-generated by `roxygen2` (and, therefore, prevents `roxygen2` to overwrite `NAMESPACE`). Then, evoke the command `devtools::document()` to generate it. Commit.
 
 At the end of each step, please, do not forget to commit with a clear message.
 
-Note if you use `ggplot2`, you have to specify it in DESCRIPTION file in the section `Imports`. To use the function from `ggplot2`, you have to write `ggplot2::ggplot()` instead of `ggplot()`.
+Note if you use `ggplot2`, you have to specify it in `DESCRIPTION` file in the section `Imports`. To use the function from `ggplot2`, you have to specify its namespace, that is use `ggplot2::ggplot()` instead of `ggplot()`.
 
-#### Problem 2: introduce a high perfomance computing
+You can also check yourself at this step, if everything works well. You need to `Install and Restart` (in `Build` tab) and try to run `estimate_pi()`, as well as look at the help file by `?estimate_pi`.
 
-- Create a new file `is_inside.cpp`
-- Define a function `is_inside` in that file:
-<<<<<<< HEAD
-    * The function should supply a matrix of the dimension `B x 2` and return a logical vector of length `B`, for which `TRUE` means that the point inside the circle, and `FALSE`, respectively, outside.
-    * There should be a `for` loop in the function that would define whether or not points are inside the circle.
-- Define a new R function `find_pi2` in `pi.R` that would use `is_inside` function instead of the native R `for` loop.
-- Document `find_pi2` function appropriately. 
-=======
-    * The function should supply a matrix of the dimension `B x 2` and return a logical vector of length `B`, for which `TRUE` means that the point inside the circle, and `FLASE`, respectively, outside.
-    * There should be a `for` loop in that function that would define whether or not points inside the circle.
-- Define a new R function `estimate_pi2` in `pi.R` that would use `is_inside` function instead of the native R `for` loop.
-- Document `estimate_pi2` function in a similar manner as in Problem 1.
->>>>>>> 0a65aec2fc3c1c53df1ccfcd7a86875ff55995be
+#### Problem 2: introduce a high performance computing
+
+This problem shows how to integrate the high performance computing into a package. We utilize `Rcpp` package for this purpose, which makes it straightforward.
+
+- In console run `devtools::use_rcpp()`. This command will add `Rcpp` to `LinkingTo` and `Imports` (in `DESCRIPTION`), create `src\` folder (where `.cpp` files live), and add compiled files into `.gitignore`.
+
+- Create file with the same name of the package (i.e., `ptds2018hw4gN.R`) and include the following lines in it:
+
+  ```{toml}
+  #' @useDynLib ptds2018hw4gN
+  #' @importFrom Rcpp sourceCpp
+  NULL
+  ```
+
+- Run `devtools::document()` and commit.
+
+- Create a new file `is_inside.cpp` in `\src` (File -> New File -> C++ File). The file should contain a function `is_inside()` that supplies `NumericMatrix` of two columns, and returns a `LogicalVector`, for which `true` means that the point inside the circle, and `false`, respectively, outside. This function should perform a `for` loop to define whether or not points inside the circle. The file would look then as follows:
+
+  ```{toml}
+  #include <Rcpp.h>
+  using namespace Rcpp;
+
+  // [[Rcpp::export]]
+  LogicalVector is_inside(NumericMatrix points) {
+
+    LogicalVector inside(points.nrow());
+
+    // for loop in which `inside` is defined
+
+    return inside;
+  }
+  ```
+
+- Document by `devtools::document()` and commit.
+
+- Define a new R function `estimate_pi2()` in `pi.R` that would use `is_inside()` function instead of the native R `for` loop. Commit.
+
+- Document `estimate_pi2()` function in a similar manner as in Problem 1. Commit.
 
 #### Problem 3: Shiny App
 
