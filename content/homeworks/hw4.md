@@ -97,9 +97,11 @@ In this problem, we simply wrap these function into a shape of a package.
 - Everything what we have done so far are local changes on your computer. Now we need to create a new GitHub repo `ptds2018hw4gN` (where `N` is your group number) and synchronize it with your local git repo by:
 
   ```{toml}
-  git remote add origin git@github.com:YOURUSERNAME/ptds2018hw4g0.git
+  git remote add origin git@github.com:YOURUSERNAME/ptds2018hw4gN.git
   git push -u origin master
   ```
+  
+  where `YOURUSERNAME` is your GitHub username and `N` is the group number.
 
 - Copy the function `estimate_pi()` and `plot.pi()` from the previous problem into file `pi.R` in `\R` folder. Commit.
 
@@ -162,7 +164,7 @@ The interface should have the side bar panel and the main panel.
 
 The side bar panel should have the following elements:
 
-- A select box with two elements, namely, `find_pi` and `find_pi2`
+- A select box with two elements, namely, `estimate_pi` and `estiame_pi2`
 - A numeric input of the seed
 - A slider for a number of simulations that goes from `1` to `100000000`
 - A button `Run`
