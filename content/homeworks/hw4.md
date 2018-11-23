@@ -100,7 +100,7 @@ In this problem, we simply wrap these function into a shape of a package.
   git remote add origin git@github.com:YOURUSERNAME/ptds2018hw4gN.git
   git push -u origin master
   ```
-  
+
   where `YOURUSERNAME` is your GitHub username and `N` is the group number.
 
 - Copy the function `estimate_pi()` and `plot.pi()` from the previous problem into file `pi.R` in `\R` folder. Commit.
@@ -144,11 +144,11 @@ This problem shows how to integrate the high performance computing into a packag
   // [[Rcpp::export]]
   LogicalVector is_inside(NumericMatrix points) {
 
-    LogicalVector inside(points.nrow());
+      LogicalVector inside(points.nrow());
 
-    // for loop in which `inside` is defined
+      // for loop in which `inside` is defined
 
-    return inside;
+      return inside;
   }
   ```
 
@@ -160,17 +160,130 @@ This problem shows how to integrate the high performance computing into a packag
 
 #### Problem 3: Shiny App
 
-The interface should have the side bar panel and the main panel.
+Now we compliment the package with a Shiny app, so that a user can have an interactive interface to play around with the functionality of the package. The core functions of the package, `estimate_pi` vs `estiame_pi2`, have two inputs: the argument `seed` and the arguemnt `B` (the number of simulations). We  want to allow the user to choose the values of both, as well as select the function that will produce simulations. The result of the app should be the estimated value of $\pi$, the time spent on simulations, and finally, the plot of points in/out of the circle. Therefore, the interface should have:
 
-The side bar panel should have the following elements:
+- A side bar of the following elements:
+  - A select box with two elements, namely, `estimate_pi` and `estiame_pi2`
+  - A numeric input of the seed
+  - A slider for a number of simulations that goes from `1` to `1000000`
 
-- A select box with two elements, namely, `estimate_pi` and `estiame_pi2`
-- A numeric input of the seed
-- A slider for a number of simulations that goes from `1` to `100000000`
-- A button `Run`
+- A main panel of the following elements:
+  - A plot
+  - A text with the value of estimated $pi$
+  - A text with the time of the execution (use function `system.time` to measure)
 
-The main panel should have:
+Below a step-by-step instruction is presented:
 
-- A plot
-- A text with the value of estimated $pi$
-- A text with the time of the execution (use function `system.time` to measure)
+- Add `shiny` package in `DESCRIPTION` file into the section `Imports`:
+
+  ```{toml}
+  ...
+  Imports:
+      Rcpp,
+      shiny (>= 1.2.0)
+  ...
+  ```
+- Create a folder `inst\shiny-examples` in a package directory (i.e., `inst` folder at top level, and `shiny-examples` inside `inst`).
+
+- Click File -> New File -> Shiny Web App. Call the app as `pi`, select "Application type:" being "Multiple File (ui.R/server.R)", and then navigate "Create within directory:" to newly created `shiny-examples`. Commit.
+
+- Modify `ui.R` according to the mentioned above specification. The file would look like:
+
+
+  ```{toml}
+  library(shiny)
+
+  shinyUI(fluidPage(
+
+      titlePanel("Pi Estimation"),
+
+      sidebarLayout(
+
+          sidebarPanel(
+
+              selectInput("method", ...),
+
+              numericInput("seed", ...),
+
+              sliderInput("B", ...)
+
+          ),
+
+          mainPanel(
+
+            plotOutput("plot"),
+
+            textOutput("time"),
+
+            textOutput("pi")
+          )
+      )
+    ))
+  ```
+
+  where `"method"`, `"seed"`, `"B"` are `inputID`'s; and `"plot"`, `"time"`, and `"pi"` are `outputId`'s. Insert your code instead of `...`.
+
+  Hint: see help `?selectInput`, `?numericInput`, and `?sliderInput` to figure out what should replace `...`.
+
+- Modify `server.R`. Here we need to define a reactive expression (`simulate` in the chunk below), which will be executed whenever widgets are changed. This reactive depends on the values from `input` list with `inputID` elements (i.e., `"method"`).
+
+  The `output` defines what will be rendered, therefore, the `server.R` file is as follows:
+
+  ```{toml}
+  library(shiny)
+  library(ptds2018hw4gN) # REPLACE N BY YOUR GROUP NUMBER AND DELETE THIS COMMENT
+
+  shinyServer(function(input, output) {
+
+      simulate <- reactive({
+          # simulate pi and measure the time here
+          ...
+      })
+
+      output$plot <- renderPlot({
+          # plot pi
+          ...
+      })
+
+      output$time <- renderText({
+          # extract the time of the execution
+          ...
+      })
+
+      output$pi <- renderText({
+          # extract the estimated value
+          ...
+      })
+
+  })
+  ```
+
+  Do not forget to change N to the number of your group.
+
+  Commit your changes.
+
+- Add a file `runDemo.R` containing the following snippet:
+
+  ```{toml}
+  #' @export
+  runDemo <- function() {
+      # REPLACE N BY YOUR GROUP NUMBER AND DELETE THIS COMMENT
+      appDir <- system.file("shiny-examples", "pi", package = "ptds2018hw4gN")
+      if (appDir == "") {
+          stop(
+              # REPLACE N BY YOUR GROUP NUMBER AND DELETE THIS COMMENT
+              "Could not find example directory. Try re-installing ptds2018hw4gN.",
+              call. = FALSE
+          )
+      }
+
+      shiny::runApp(appDir, display.mode = "normal")
+
+  }
+  ```
+
+  Do not forget to change N to the number of your group.
+
+  Add documentation to this function using `roxygen2` comments (as in Problem 1) and `devtools::document()`. Commit.
+
+Phew! What a relief! 
