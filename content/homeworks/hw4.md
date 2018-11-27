@@ -29,7 +29,7 @@ In this problem we simplify the `find_pi` function in order to have two separate
 - **(a)** The function `find_pi` should do exactly one action, that is estimate $\pi$. Therefore, we need to introduce the following modifications:
 
     - Rename `find_pi` to `estimate_pi`
-    - Remove `make_plot` arguemnt and the code chunk to plot the chart
+    - Remove `make_plot` argument and the code chunk to plot the chart
 
     The function `estimate_pi` should return both the estimated value of $\pi$ and simulated points. The simulated points will be used for plotting afterwards, therefore, it makes sense to store them in a data frame with three columns: `x`, `y`, and a logical column `inside` (`TRUE` if a point inside a circle, and `FALSE` otherwise).
 
@@ -160,7 +160,7 @@ This problem shows how to integrate the high performance computing into a packag
 
 #### Problem 3: Shiny App
 
-Now we compliment the package with a Shiny app, so that a user can have an interactive interface to play around with the functionality of the package. The core functions of the package, `estimate_pi` vs `estimate_pi2`, have two inputs: the argument `seed` and the arguemnt `B` (the number of simulations). We  want to allow the user to choose the values of both, as well as select the function that will produce simulations. The result of the app should be the estimated value of $\pi$, the time spent on simulations, and finally, the plot of points in/out of the circle. Therefore, the interface should have:
+Now we compliment the package with a Shiny app, so that a user can have an interactive interface to play around with the functionality of the package. The core functions of the package, `estimate_pi` vs `estimate_pi2`, have two inputs: the argument `seed` and the argument `B` (the number of simulations). We  want to allow the user to choose the values of both, as well as select the function that will produce simulations. The result of the app should be the estimated value of $\pi$, the time spent on simulations, and finally, the plot of points in/out of the circle. Therefore, the interface should have:
 
 - A side bar of the following elements:
   - A select box with two elements, namely, `estimate_pi` and `estimate_pi2`
