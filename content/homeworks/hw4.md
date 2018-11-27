@@ -160,10 +160,10 @@ This problem shows how to integrate the high performance computing into a packag
 
 #### Problem 3: Shiny App
 
-Now we compliment the package with a Shiny app, so that a user can have an interactive interface to play around with the functionality of the package. The core functions of the package, `estimate_pi` vs `estiame_pi2`, have two inputs: the argument `seed` and the arguemnt `B` (the number of simulations). We  want to allow the user to choose the values of both, as well as select the function that will produce simulations. The result of the app should be the estimated value of $\pi$, the time spent on simulations, and finally, the plot of points in/out of the circle. Therefore, the interface should have:
+Now we compliment the package with a Shiny app, so that a user can have an interactive interface to play around with the functionality of the package. The core functions of the package, `estimate_pi` vs `estimate_pi2`, have two inputs: the argument `seed` and the arguemnt `B` (the number of simulations). We  want to allow the user to choose the values of both, as well as select the function that will produce simulations. The result of the app should be the estimated value of $\pi$, the time spent on simulations, and finally, the plot of points in/out of the circle. Therefore, the interface should have:
 
 - A side bar of the following elements:
-  - A select box with two elements, namely, `estimate_pi` and `estiame_pi2`
+  - A select box with two elements, namely, `estimate_pi` and `estimate_pi2`
   - A numeric input of the seed
   - A slider for a number of simulations that goes from `1` to `1000000`
 
