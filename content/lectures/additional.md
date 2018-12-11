@@ -35,4 +35,7 @@ Find here the code we used during the class.
 
 ## R-package
 Check [Hadley's book](http://r-pkgs.had.co.nz/)   
-The code of today's lecture is on a GitHub rep [here](https://github.com/SMAC-Group/test0)   
+The code of lecture #8 is on a GitHub rep [here](https://github.com/SMAC-Group/test0)   
+
+## R-package with Rcpp and Shiny App
+The code and the package of lecture #9 are accessible [here](https://github.com/SMAC-Group/RcppSpg)
